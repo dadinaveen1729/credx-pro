@@ -1,0 +1,14 @@
+{
+  "/_app": "pages/_app.js",
+  "/about": "pages/about.html",
+  "/features": "pages/features.html",
+  "/login": "pages/login.html",
+  "/payments": "pages/payments.html",
+  "/": "pages/index.html",
+  "/privacy": "pages/privacy.html",
+  "/support": "pages/support.html",
+  "/_error": "pages/_error.js",
+  "/terms": "pages/terms.html",
+  "/_document": "pages/_document.js",
+  "/404": "pages/404.html"
+}
