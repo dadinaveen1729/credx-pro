@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Gallery | VIC Salon Jubilee Hills, Hyderabad</title>
+<meta name="description" content="Real photos of VIC Salon — interior, spa, nails, hair, and more. Luxury salon in Jubilee Hills, Hyderabad."/>
+<link rel="stylesheet" href="css/style.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+/* ---- Uniform Photo Grid ---- */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 80px;
+}
+@media(max-width:1024px){ .photo-grid { grid-template-columns: repeat(3,1fr); } }
+@media(max-width:680px) { .photo-grid { grid-template-columns: repeat(2,1fr); } }
+
+.photo-cell {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4/3;          /* ALL cells same ratio — horizontal landscape */
+  background: #1a1a1a;
+  cursor: pointer;
+  border: 1px solid rgba(201,168,70,0.08);
+}
+.photo-cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;           /* always fills, no black bars */
+  object-position: center;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.photo-cell:hover img { transform: scale(1.07); }
+.photo-cell-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 55%);
+  opacity: 0; transition: opacity 0.3s ease;
+  display: flex; align-items: flex-end; justify-content: center;
+  padding-bottom: 14px;
+}
+.photo-cell:hover .photo-cell-overlay { opacity: 1; }
+.photo-cell-overlay i { color: var(--gold); font-size: 1.3rem; }
+
+/* Gold placeholder for failed images */
+.photo-cell.broken { background: linear-gradient(135deg,#1a1a1a 0%,#111 100%); cursor: default; }
+.photo-cell.broken::after {
+  content: 'VIC';
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem; color: rgba(201,168,70,0.3);
+  letter-spacing: 0.3em;
+}
+
+/* ---- Lightbox ---- */
+.lb {
+  display: none; position: fixed; inset: 0; z-index: 9999;
+  background: rgba(0,0,0,0.96);
+  align-items: center; justify-content: center;
+}
+.lb.open { display: flex; }
+.lb img { max-width:92vw; max-height:90vh; object-fit:contain; }
+.lb-close { position:fixed; top:20px; right:28px; color:#fff; font-size:2.2rem; cursor:pointer; z-index:10000; line-height:1; }
+.lb-prev,.lb-next { position:fixed; top:50%; transform:translateY(-50%); color:var(--gold); font-size:2rem; cursor:pointer; z-index:10000; background:rgba(0,0,0,0.5); padding:14px 18px; }
+.lb-prev { left:12px; } .lb-next { right:12px; }
+
+/* ---- Reels grid ---- */
+.reels-row {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 20px;
+  margin-bottom: 80px;
+}
+@media(max-width:900px){ .reels-row { grid-template-columns: repeat(2,1fr); } }
+@media(max-width:560px){ .reels-row { grid-template-columns: 1fr; } }
+
+.reel-link-card {
+  position: relative;
+  aspect-ratio: 9/16;
+  background: #111;
+  border: 1px solid rgba(201,168,70,0.2);
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.reel-link-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.6); }
+.reel-link-card img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; opacity:0.55; }
+.reel-overlay { position:relative; z-index:2; text-align:center; padding:20px; }
+.play-btn { width:60px; height:60px; border-radius:50%; background:var(--gold); display:flex; align-items:center; justify-content:center; margin:0 auto 14px; font-size:1.3rem; color:#000; transition:transform 0.2s; }
+.reel-link-card:hover .play-btn { transform:scale(1.1); }
+.reel-caption { color:#fff; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:0.9rem; text-shadow:0 2px 8px rgba(0,0,0,0.9); line-height:1.4; }
+
+/* ---- Follow CTA ---- */
+.ig-follow-cta {
+  text-align:center; padding:60px 20px;
+  background:var(--charcoal);
+  border:1px solid rgba(201,168,70,0.2);
+  max-width:600px; margin:0 auto 80px;
+}
+.ig-icon { font-size:3rem; color:var(--gold); margin-bottom:16px; }
+.ig-follow-cta h3 { font-family:'Playfair Display',serif; font-size:1.8rem; color:#fff; margin-bottom:12px; }
+.ig-follow-cta p { color:rgba(255,255,255,0.85); margin-bottom:28px; }
+
+/* Light mode overrides for gallery */
+body.light-mode .photo-cell { border-color:rgba(0,0,0,0.1) !important; background:#e8e4dc !important; }
+body.light-mode .photo-cell.broken { background:#e8e4dc !important; }
+body.light-mode .ig-follow-cta { background:#e2ddd5 !important; border-color:rgba(201,168,70,0.3) !important; }
+body.light-mode .ig-follow-cta h3 { color:#1a1a1a !important; }
+body.light-mode .ig-follow-cta p { color:#444 !important; }
+body.light-mode .reel-link-card { background:#ddd8d0 !important; border-color:rgba(201,168,70,0.3) !important; }
+</style>
+</head>
+<body>
+<div id="page-loader"><div class="loader-logo">VIC</div></div>
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <div class="nav-left"><a href="hair.html" class="nav-link">Hair</a><a href="spa.html" class="nav-link">Spa &amp; Body</a><a href="skin.html" class="nav-link">Skin</a><a href="nails.html" class="nav-link">Nails</a><a href="glam.html" class="nav-link">Glam</a></div>
+    <a href="index.html" class="nav-logo"><div class="nav-logo-text">VIC</div><div class="nav-logo-sub">Salon</div><div class="nav-logo-tagline">Crafted for you</div></a>
+    <div class="nav-right"><a href="about.html" class="nav-link">About Us</a><a href="membership.html" class="nav-link">Membership</a><a href="gallery.html" class="nav-link active">Gallery</a><a href="contact.html" class="nav-link">Contact</a><button class="theme-toggle" id="theme-toggle" title="Toggle day/night"><i class="fas fa-sun"></i></button><a href="https://wa.me/917993994449" target="_blank" class="nav-link nav-cta">Book Now</a></div>
+    <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="hair.html" class="nav-link">Hair</a><a href="spa.html" class="nav-link">Spa &amp; Body</a><a href="skin.html" class="nav-link">Skin</a><a href="nails.html" class="nav-link">Nails</a><a href="glam.html" class="nav-link">Glam</a><a href="about.html" class="nav-link">About Us</a><a href="membership.html" class="nav-link">Membership</a><a href="gallery.html" class="nav-link">Gallery</a><a href="contact.html" class="nav-link">Contact</a><a href="https://wa.me/917993994449" target="_blank" class="nav-link nav-cta">Book Now</a>
+</div>
+
+<section class="page-hero" style="min-height:55vh;">
+  <div class="page-hero-bg" style="background-image:url('https://lh3.googleusercontent.com/p/AF1QipOjckk5i4BSyDL4Ar7C--JLxRkwGlCEUCKSvQn1=w1920-h1080-k-no');background-size:cover;background-position:center;"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <span class="page-hero-eyebrow">Inside VIC Salon</span>
+    <h1 class="page-hero-title">Our <em>Gallery</em></h1>
+    <p class="page-hero-sub">Real photos from VIC Salon, Jubilee Hills — crafted for you.</p>
+  </div>
+</section>
+
+<main style="background:var(--black);padding:80px 0;">
+<div class="container">
+
+  <div class="text-center reveal" style="margin-bottom:60px">
+    <span class="section-eyebrow">VIC Salon</span>
+    <h2 class="section-title">Inside the <em>Experience</em></h2>
+    <div class="gold-line center"></div>
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:rgba(255,255,255,0.9);font-size:1rem;margin-top:16px">Every corner of VIC Salon is designed to make you feel extraordinary.</p>
+  </div>
+
+  <!-- 20 Real VIC Salon photos - Google Maps (no hotlink block) -->
+  <div class="photo-grid reveal" id="photo-grid">
+    <div class="photo-cell" data-full="https://lh3.googleusercontent.com/p/AF1QipOjckk5i4BSyDL4Ar7C--JLxRkwGlCEUCKSvQn1=w1920-h1080-k-no">
+      <img src="https://lh3.googleusercontent.com/p/AF1QipOjckk5i4BSyDL4Ar7C--JLxRkwGlCEUCKSvQn1=w800-h600-k-no" alt="VIC Salon" loading="lazy" onerror="this.closest('.photo-cell').classList.add('broken');this.remove()"/>
+      <div class="photo-cell-overlay"><i class="fas fa-expand-alt"></i></div>
+    </div>
+    <div class="photo-cell" data-full="https://lh3.googleusercontent.com/p/AF1QipPYkO4zhx9g9rvXnDlIkkmgpK6-4aSzgjLzeqzx=w1920-h1080-k-no">
+      <img src="https://lh3.googleusercontent.com/p/AF1QipPYkO4zhx9g9rvXnDlIkkmgpK6-4aSzgjLzeqzx=w800-h600-k-no" alt="VIC Salon" loading="lazy" onerror="this.closest('.photo-cell').classList.add('broken');this.remove()"/>
+      <div class="photo-cell-overlay"><i class="fas fa-expand-alt"></i></div>
+    </div>
+    <div class="photo-cell" data-full="https://lh3.googleusercontent.com/p/AF1QipPccjAApaFhimvRTKvWVxsUUIT7q_GbFF2KEAEy=w1920-h1080-k-no">
+      <img src="https://lh3.googleusercontent.com/p/AF1QipPccjAApaFhimvRTKvWVxsUUIT7q_GbFF2KEAEy=w800-h600-k-no" alt="VIC Salon" loading="lazy" onerror="this.closest('.photo-cell').classList.add('broken');this.remove()"/>
+      <div class="photo-cell-overlay"><i class="fas fa-expand-alt"></i></div>
+    </div>
+    <div class="photo-cell" data-full="https://lh3.googleusercontent.com/p/AF1QipO09CSZU8EH2dUWGqvGjQOaEUimsdv-TZdqNE1c=w1920-h1080-k-no">
+      <img src="https://lh3.googleusercontent.com/p/AF1QipO09CSZU8EH2dUWGqvGjQOaEUimsdv-TZdqNE1c=w800-h600-k-no" alt="VIC Salon" loading="lazy" onerror="this.closest('.photo-cell').classList.add('broken');this.remove()"/>
+      <div class="photo-cell-overlay"><i class="fas fa-expand-alt"></i></div>
+    </div>
+    <div class="photo-cell" data-full="https://lh3.googleusercontent.com/p/AF1QipOXXWrKqBE3Im5l7QliALbT_5boudPZTDQFYUqn=w1920-h1080-k-no">
+      <img src="https://lh3.googleusercontent.com/p/AF1QipOXXWrKqBE3Im5l7QliALbT_5boudPZTDQFYUqn=w800-h600-k-no" alt="VIC Salon" loading="lazy" onerror="this.closest('.photo-cell').classList.add('broken');this.remove()"/>
+      <div class="photo-cell-overlay"><i class="fas fa-expand-alt"></i></div>
+    </div>
+    <div class="photo-cell" data-full="https://lh3.googleusercontent.com/p/AF1QipN1moZfkbrpQtgRF0LDZ0_Tn1mRCAr_iqKjCGCx=w1920-h1080-k-no">
+      <img src="https://lh3.googleusercontent.com/p/AF1QipN1moZfkbrpQtgRF0LDZ0_Tn1mRCAr_iqKjCGCx=w800-h600-k-no" alt="VIC Salon" loading="lazy" onerror="this.closest('.photo-cell').classList.add('broken');this.remove()"/>
+      <div class="photo-cell-overlay"><i class="fas fa-expand-alt"></i></div>
+    </div>
+    <div class="photo-cell" data-full="https://lh3.googleusercontent.com/p/AF1QipPihLFByLaMAXp47ACqKobFqK9xrYV4Oosa3ugE=w1920-h1080-k-no">
+      <img src="https://lh3.googleusercontent.com/p/AF1QipPihLFByLaMAXp47ACqKobFqK9xrYV4Oosa3ugE=w800-h600-k-no" alt="VIC Salon" loading="lazy" onerror="this.closest('.photo-cell').classList.add('broken');this.remove()"/>
+      <div class="photo-cell-overlay"><i class="fas fa-expand-alt"></i></div>
+    </div>
+    <div class="photo-cell" data-full="https://lh3.googleusercontent.com/p/AF1QipMfzhRz1lsyCPtDEgtr_cqpDxbEKG7zLFm6pX1M=w1920-h1080-k-no">
+      <img src="https://lh3.googleusercontent.com/p/AF1QipMfzhRz1lsyCPtDEgtr_cqpDxbEKG7zLFm6pX1M=w800-h600-k-no" alt="VIC Salon" loading="lazy" onerror="this.closest('.photo-cell').classList.add('broken');this.remove()"/>
+      <div class="photo-cell-overlay"><i class="fas fa-expand-alt"></i></div>
+    </div>
+    <div class="photo-cell" data-full="https://lh3.googleusercontent.com/p/AF1QipNqSmWf-iF3hFUjgSZCV9ttWWdgMI6F7hMoHqyD=w1920-h1080-k-no">
+      <img src="https://lh3.googleusercontent.com/p/AF1QipNqSmWf-iF3hFUjgSZCV9ttWWdgMI6F7hMoHqyD=w800-h600-k-no" alt="VIC Salon" loading="lazy" onerror="this.closest('.photo-cell').classList.add('broken');this.remove()"/>
+      <div class="photo-cell-overlay"><i class="fas fa-expand-alt"></i></div>
+    </div>
+    <div class="photo-cell" data-full="https://lh3.googleusercontent.com/p/AF1QipNpkXRi-8OUJC4i3rbjRjTShWvEDSwMQJ0c7Qa2=w1920-h1080-k-no">
+      <img src="https://lh3.googleusercontent.com/p/AF1QipNpkXRi-8OUJC4i3rbjRjTShWvEDSwMQJ0c7Qa2=w800-h600-k-no" alt="VIC Salon" loading="lazy" onerror="this.closest('.photo-cell').classList.add('broken');this.remove()"/>
+      <div class="photo-cell-overlay"><i class="fas fa-expand-alt"></i></div>
+    </div>
+    <div class="photo-cell" data-full="https://lh3.googleusercontent.com/p/AF1QipM4UVgXCSuz_AbuUWD9VMk1fiiJRTxUUJj70hLu=w1920-h1080-k-no">
+      <img src="https://lh3.googleusercontent.com/p/AF1QipM4UVgXCSuz_AbuUWD9VMk1fiiJRTxUUJj70hLu=w800-h600-k-no" alt="VIC Salon" loading="lazy" onerror="this.closest('.photo-cell').classList.add('broken');this.remove()"/>
+      <div class="photo-cell-overlay"><i class="fas fa-expand-alt"></i></div>
+    </div>
+    <div class="photo-cell" data-full="https://lh3.googleusercontent.com/p/AF1QipNiNmTv7BPlbtcuPUNUJ3ejia-BGi6MDVOXB8wM=w1920-h1080-k-no">
+      <img src="https://lh3.googleusercontent.com/p/AF1QipNiNmTv7BPlbtcuPUNUJ3ejia-BGi6MDVOXB8wM=w800-h600-k-no" alt="VIC Salon" loading="lazy" onerror="this.closest('.photo-cell').classList.add('broken');this.remove()"/>
+      <div class="photo-cell-overlay"><i class="fas fa-expand-alt"></i></div>
+    </div>
+    <div class="photo-cell" data-full="https://lh3.googleusercontent.com/p/AF1QipNxCv_3TAgcXJLO9Dvo6e9YludOx7fEd1V4_H1u=w1920-h1080-k-no">
+      <img src="https://lh3.googleusercontent.com/p/AF1QipNxCv_3TAgcXJLO9Dvo6e9YludOx7fEd1V4_H1u=w800-h600-k-no" alt="VIC Salon" loading="lazy" onerror="this.closest('.photo-cell').classList.add('broken');this.remove()"/>
+      <div class="photo-cell-overlay"><i class="fas fa-expand-alt"></i></div>
+    </div>
+    <div class="photo-cell" data-full="https://lh3.googleusercontent.com/p/AF1QipMCMVEhwi7FPExdN_9i4hfNTC9YZIViJGhilHVn=w1920-h1080-k-no">
+      <img src="https://lh3.googleusercontent.com/p/AF1QipMCMVEhwi7FPExdN_9i4hfNTC9YZIViJGhilHVn=w800-h600-k-no" alt="VIC Salon" loading="lazy" onerror="this.closest('.photo-cell').classList.add('broken');this.remove()"/>
+      <div class="photo-cell-overlay"><i class="fas fa-expand-alt"></i></div>
+    </div>
+    <div class="photo-cell" data-full="https://lh3.googleusercontent.com/p/AF1QipMnbGTDsybQeLLlFbOCPyu-0-ZCE5PiuERdY8uV=w1920-h1080-k-no">
+      <img src="https://lh3.googleusercontent.com/p/AF1QipMnbGTDsybQeLLlFbOCPyu-0-ZCE5PiuERdY8uV=w800-h600-k-no" alt="VIC Salon" loading="lazy" onerror="this.closest('.photo-cell').classList.add('broken');this.remove()"/>
+      <div class="photo-cell-overlay"><i class="fas fa-expand-alt"></i></div>
+    </div>
+    <div class="photo-cell" data-full="https://lh3.googleusercontent.com/p/AF1QipOhVZvpQIRY4_E1x6cX3TugRTBAWbXWd3Mh6eGq=w1920-h1080-k-no">
+      <img src="https://lh3.googleusercontent.com/p/AF1QipOhVZvpQIRY4_E1x6cX3TugRTBAWbXWd3Mh6eGq=w800-h600-k-no" alt="VIC Salon" loading="lazy" onerror="this.closest('.photo-cell').classList.add('broken');this.remove()"/>
+      <div class="photo-cell-overlay"><i class="fas fa-expand-alt"></i></div>
+    </div>
+    <div class="photo-cell" data-full="https://lh3.googleusercontent.com/p/AF1QipNGDQFgd037PmuT8y5JqIrhzxKKo8veZ54s_dvP=w1920-h1080-k-no">
+      <img src="https://lh3.googleusercontent.com/p/AF1QipNGDQFgd037PmuT8y5JqIrhzxKKo8veZ54s_dvP=w800-h600-k-no" alt="VIC Salon" loading="lazy" onerror="this.closest('.photo-cell').classList.add('broken');this.remove()"/>
+      <div class="photo-cell-overlay"><i class="fas fa-expand-alt"></i></div>
+    </div>
+    <div class="photo-cell" data-full="https://lh3.googleusercontent.com/p/AF1QipMRaXh-FBYCGVbz5CwkaZcTpUA4ronC6PHrBxGH=w1920-h1080-k-no">
+      <img src="https://lh3.googleusercontent.com/p/AF1QipMRaXh-FBYCGVbz5CwkaZcTpUA4ronC6PHrBxGH=w800-h600-k-no" alt="VIC Salon" loading="lazy" onerror="this.closest('.photo-cell').classList.add('broken');this.remove()"/>
+      <div class="photo-cell-overlay"><i class="fas fa-expand-alt"></i></div>
+    </div>
+    <div class="photo-cell" data-full="https://lh3.googleusercontent.com/gps-cs-s/APNQkAFNGYOsIDeEJ5k5NDNIZA7Lf01r4zg1-n5b1IKlEUqMKDuNZk6zNF9ImrHtA7SYHpZii21x3YPcMTc785QT1UgNgPnEywotKksQ09d_pKsFgOoN3a6wAk1U--wVf8zO5jnVFqpy_r7PwbYu=w1920-h1080-k-no">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAFNGYOsIDeEJ5k5NDNIZA7Lf01r4zg1-n5b1IKlEUqMKDuNZk6zNF9ImrHtA7SYHpZii21x3YPcMTc785QT1UgNgPnEywotKksQ09d_pKsFgOoN3a6wAk1U--wVf8zO5jnVFqpy_r7PwbYu=w800-h600-k-no" alt="VIC Salon" loading="lazy" onerror="this.closest('.photo-cell').classList.add('broken');this.remove()"/>
+      <div class="photo-cell-overlay"><i class="fas fa-expand-alt"></i></div>
+    </div>
+    <div class="photo-cell" data-full="https://lh3.googleusercontent.com/gps-cs-s/APNQkAFOuYyX9-SU0B9P7k-PECHQkl6WymEbeH72kKZ9Eik_ewqhuBRpzsHTr4aeHEk6aKzZPncJLqvN5anpQvXJDLUkIfR69B3EkogdIjwvIOr_j0h3TCLi993BkXgRydjRzzQ4axx-0FA-lSM=w1920-h1080-k-no">
+      <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAFOuYyX9-SU0B9P7k-PECHQkl6WymEbeH72kKZ9Eik_ewqhuBRpzsHTr4aeHEk6aKzZPncJLqvN5anpQvXJDLUkIfR69B3EkogdIjwvIOr_j0h3TCLi993BkXgRydjRzzQ4axx-0FA-lSM=w800-h600-k-no" alt="VIC Salon" loading="lazy" onerror="this.closest('.photo-cell').classList.add('broken');this.remove()"/>
+      <div class="photo-cell-overlay"><i class="fas fa-expand-alt"></i></div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lb" id="lb">
+    <span class="lb-close" id="lb-close"><i class="fas fa-times"></i></span>
+    <span class="lb-prev" id="lb-prev"><i class="fas fa-chevron-left"></i></span>
+    <img id="lb-img" src="" alt="VIC Salon"/>
+    <span class="lb-next" id="lb-next"><i class="fas fa-chevron-right"></i></span>
+  </div>
+
+  <!-- REELS -->
+  <div class="text-center reveal" style="margin-bottom:60px">
+    <span class="section-eyebrow">@vic.salon Reels</span>
+    <h2 class="section-title">Watch Our <em>Reels</em></h2>
+    <div class="gold-line center"></div>
+  </div>
+
+  <div class="reels-row reveal">
+    <a class="reel-link-card" href="https://www.instagram.com/reel/DX_cxl9xNbf/" target="_blank">
+      <img src="https://lh3.googleusercontent.com/p/AF1QipOjckk5i4BSyDL4Ar7C--JLxRkwGlCEUCKSvQn1=w600-h1000-k-no" alt="" onerror="this.remove()"/>
+      <div class="reel-overlay"><div class="play-btn"><i class="fas fa-play"></i></div><div class="reel-caption">Too glam to give a damn 💋</div></div>
+    </a>
+    <a class="reel-link-card" href="https://www.instagram.com/reel/DXjFblPEcuR/" target="_blank">
+      <img src="https://lh3.googleusercontent.com/p/AF1QipPYkO4zhx9g9rvXnDlIkkmgpK6-4aSzgjLzeqzx=w600-h1000-k-no" alt="" onerror="this.remove()"/>
+      <div class="reel-overlay"><div class="play-btn"><i class="fas fa-play"></i></div><div class="reel-caption">Not just nails — it's a whole vibe 💅</div></div>
+    </a>
+    <a class="reel-link-card" href="https://www.instagram.com/reel/DXcM3GUEn_I/" target="_blank">
+      <img src="https://lh3.googleusercontent.com/p/AF1QipPccjAApaFhimvRTKvWVxsUUIT7q_GbFF2KEAEy=w600-h1000-k-no" alt="" onerror="this.remove()"/>
+      <div class="reel-overlay"><div class="play-btn"><i class="fas fa-play"></i></div><div class="reel-caption">Flawless finish 💅</div></div>
+    </a>
+    <a class="reel-link-card" href="https://www.instagram.com/reel/DXOeNqSke2O/" target="_blank">
+      <img src="https://lh3.googleusercontent.com/p/AF1QipO09CSZU8EH2dUWGqvGjQOaEUimsdv-TZdqNE1c=w600-h1000-k-no" alt="" onerror="this.remove()"/>
+      <div class="reel-overlay"><div class="play-btn"><i class="fas fa-play"></i></div><div class="reel-caption">Summer nails — main character energy 🌈</div></div>
+    </a>
+    <a class="reel-link-card" href="https://www.instagram.com/reel/DXEGmugkUrx/" target="_blank">
+      <img src="https://lh3.googleusercontent.com/p/AF1QipOXXWrKqBE3Im5l7QliALbT_5boudPZTDQFYUqn=w600-h1000-k-no" alt="" onerror="this.remove()"/>
+      <div class="reel-overlay"><div class="play-btn"><i class="fas fa-play"></i></div><div class="reel-caption">That one nail appointment that fixes everything ✨</div></div>
+    </a>
+    <a class="reel-link-card" href="https://www.instagram.com/reel/DWvOXlDzYe2/" target="_blank">
+      <img src="https://lh3.googleusercontent.com/p/AF1QipN1moZfkbrpQtgRF0LDZ0_Tn1mRCAr_iqKjCGCx=w600-h1000-k-no" alt="" onerror="this.remove()"/>
+      <div class="reel-overlay"><div class="play-btn"><i class="fas fa-play"></i></div><div class="reel-caption">Your hair deserves an EXPERIENCE 💎</div></div>
+    </a>
+  </div>
+
+  <!-- Follow CTA -->
+  <div class="ig-follow-cta reveal">
+    <div class="ig-icon"><i class="fab fa-instagram"></i></div>
+    <h3>Follow @vic.salon</h3>
+    <p>Stay updated with our latest styles, offers and behind-the-scenes from Jubilee Hills.</p>
+    <a href="https://www.instagram.com/vic.salon/" target="_blank" class="btn btn-gold">
+      <i class="fab fa-instagram"></i> &nbsp;Follow on Instagram
+    </a>
+  </div>
+
+</div>
+</main>
+
+<a href="#" class="float-top" title="Back to top"><i class="fas fa-chevron-up"></i></a>
+<script src="js/main.js"></script>
+<script>
+const cells = document.querySelectorAll('.photo-cell[data-full]:not(.broken)');
+const lb = document.getElementById('lb'), lbImg = document.getElementById('lb-img');
+let idx = 0;
+const srcs = () => Array.from(document.querySelectorAll('.photo-cell[data-full]:not(.broken)')).map(c=>c.dataset.full);
+
+document.querySelectorAll('.photo-cell[data-full]').forEach((c,i)=>{
+  c.addEventListener('click',()=>{
+    if(c.classList.contains('broken')) return;
+    const list = srcs(); idx = list.indexOf(c.dataset.full);
+    lbImg.src = list[idx]; lb.classList.add('open'); document.body.style.overflow='hidden';
+  });
+});
+document.getElementById('lb-close').onclick=()=>{lb.classList.remove('open');document.body.style.overflow='';};
+document.getElementById('lb-prev').onclick=()=>{const l=srcs();idx=(idx-1+l.length)%l.length;lbImg.src=l[idx];};
+document.getElementById('lb-next').onclick=()=>{const l=srcs();idx=(idx+1)%l.length;lbImg.src=l[idx];};
+lb.addEventListener('click',e=>{if(e.target===lb){lb.classList.remove('open');document.body.style.overflow='';}});
+document.addEventListener('keydown',e=>{
+  if(!lb.classList.contains('open'))return;
+  const l=srcs();
+  if(e.key==='Escape'){lb.classList.remove('open');document.body.style.overflow='';}
+  if(e.key==='ArrowLeft'){idx=(idx-1+l.length)%l.length;lbImg.src=l[idx];}
+  if(e.key==='ArrowRight'){idx=(idx+1)%l.length;lbImg.src=l[idx];}
+});
+</script>
+</body>
+</html>

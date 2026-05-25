@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="referrer" content="no-referrer">
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About VIC Salon | Jubilee Hills, Hyderabad — Our Story</title>
+<meta name="description" content="The story behind VIC Salon — founded by Madhuri Bollaram and Bhaghat G with a dream to create Hyderabad's most beautiful salon experience in Jubilee Hills."/>
+<meta name="keywords" content="VIC Salon founders, Madhuri Bollaram, Bhaghat G, best salon Hyderabad, VIC Salon story, Jubilee Hills salon"/>
+<link rel="stylesheet" href="css/style.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+/* ── About Page Custom Styles ── */
+.about-body-section { padding: 120px 0; background: var(--black); }
+body.light-mode .about-body-section { background: #f8f5f0 !important; color: #1a1a1a !important; }
+
+/* ── Founder Section ── */
+.founders-section { padding: 120px 0; background: var(--charcoal); overflow: hidden; }
+body.light-mode .founders-section { background: #ede9e1 !important; }
+
+.founders-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: rgba(201,168,70,0.12); margin-top: 80px; }
+@media(max-width:900px){ .founders-grid { grid-template-columns: 1fr; } }
+
+.founder-card {
+  background: var(--charcoal);
+  padding: 60px 52px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.5s ease;
+}
+body.light-mode .founder-card { background: #ffffff !important; }
+.founder-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  transform: scaleX(0); transition: transform 0.6s ease;
+}
+.founder-card:hover::before { transform: scaleX(1); }
+.founder-card:hover { background: #1c1c1c; }
+body.light-mode .founder-card:hover { background: #f5f0e8 !important; }
+
+.founder-avatar {
+  width: 90px; height: 90px; border-radius: 50%;
+  border: 2px solid var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-serif); font-size: 2.2rem; font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 28px;
+  background: rgba(201,168,70,0.07);
+  transition: transform 0.4s ease, background 0.4s ease;
+}
+.founder-card:hover .founder-avatar { transform: scale(1.05); background: rgba(201,168,70,0.12); }
+
+.founder-role {
+  font-size: 0.6rem; letter-spacing: 0.4em; text-transform: uppercase;
+  color: var(--gold); font-weight: 600; margin-bottom: 8px; display: block;
+}
+body.light-mode .founder-role { color: #9A7E2F !important; }
+
+.founder-name {
+  font-family: var(--font-serif);
+  font-size: 2rem; font-weight: 400; margin-bottom: 28px;
+  color: var(--white); line-height: 1.15;
+}
+body.light-mode .founder-name { color: #1a1a1a !important; }
+
+.founder-story p {
+  font-size: 0.92rem; line-height: 1.9;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 18px;
+}
+body.light-mode .founder-story p { color: #333333 !important; }
+
+.founder-quote {
+  margin-top: 32px; padding: 28px 0 0;
+  border-top: 1px solid rgba(201,168,70,0.2);
+}
+.founder-quote-text {
+  font-family: var(--font-elegant);
+  font-style: italic; font-size: 1.1rem; line-height: 1.8;
+  color: var(--gold-light);
+}
+body.light-mode .founder-quote-text { color: #9A7E2F !important; }
+.founder-quote-attr {
+  font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--grey); margin-top: 10px;
+}
+body.light-mode .founder-quote-attr { color: #777 !important; }
+
+/* ── Timeline ── */
+.timeline-section { padding: 120px 0; background: var(--black); }
+body.light-mode .timeline-section { background: #f8f5f0 !important; }
+
+.timeline { position: relative; max-width: 900px; margin: 70px auto 0; }
+.timeline::before {
+  content: '';
+  position: absolute; left: 50%; top: 0; bottom: 0;
+  width: 1px; background: rgba(201,168,70,0.25);
+  transform: translateX(-50%);
+}
+@media(max-width:700px){
+  .timeline::before { left: 24px; }
+}
+
+.timeline-item {
+  display: grid; grid-template-columns: 1fr 60px 1fr;
+  gap: 0; margin-bottom: 60px; position: relative;
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.timeline-item.revealed { opacity: 1; transform: translateY(0); }
+.timeline-item:nth-child(odd) .timeline-left { text-align: right; padding-right: 40px; }
+.timeline-item:nth-child(odd) .timeline-right { padding-left: 40px; }
+.timeline-item:nth-child(even) .timeline-left { padding-right: 40px; }
+.timeline-item:nth-child(even) .timeline-right { text-align: left; padding-left: 40px; }
+
+@media(max-width:700px){
+  .timeline-item { grid-template-columns: 48px 1fr; }
+  .timeline-item .timeline-left { display: none; }
+  .timeline-item:nth-child(odd) .timeline-right { text-align: left; padding-left: 24px; }
+  .timeline-item:nth-child(even) .timeline-right { text-align: left; padding-left: 24px; }
+}
+
+.timeline-node {
+  display: flex; align-items: flex-start; justify-content: center; padding-top: 4px;
+}
+.timeline-dot {
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--gold);
+  border: 3px solid var(--charcoal);
+  box-shadow: 0 0 0 1px var(--gold);
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+body.light-mode .timeline-dot { border-color: #f8f5f0 !important; }
+
+.timeline-year {
+  font-family: var(--font-serif); font-size: 1.05rem;
+  color: var(--gold); font-weight: 600; line-height: 1;
+}
+body.light-mode .timeline-year { color: #C9A846 !important; }
+
+.timeline-title {
+  font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 8px;
+  color: var(--white);
+}
+body.light-mode .timeline-title { color: #1a1a1a !important; }
+
+.timeline-text {
+  font-size: 0.85rem; line-height: 1.75;
+  color: rgba(255,255,255,0.65);
+}
+body.light-mode .timeline-text { color: #555555 !important; }
+
+/* ── Philosophy Cards ── */
+.philosophy-section { padding: 120px 0; background: var(--charcoal); }
+body.light-mode .philosophy-section { background: #e8e4dc !important; }
+
+/* ── Closing CTA ── */
+.about-cta-section {
+  padding: 120px 0;
+  background: var(--black);
+  text-align: center;
+}
+body.light-mode .about-cta-section { background: #f8f5f0 !important; }
+.about-cta-lead {
+  font-family: var(--font-elegant); font-style: italic;
+  font-size: 1.3rem; line-height: 1.8;
+  color: rgba(255,255,255,0.75); max-width: 680px; margin: 0 auto 40px;
+}
+body.light-mode .about-cta-lead { color: #444444 !important; }
+
+/* ── Animated gold pulse on founder avatar ── */
+@keyframes avatarPulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(201,168,70,0.3); }
+  50%      { box-shadow: 0 0 0 12px rgba(201,168,70,0); }
+}
+.founder-avatar { animation: avatarPulse 3s ease-in-out infinite; }
+</style>
+</head>
+<body>
+<div id="page-loader"><div class="loader-logo">VIC</div></div>
+
+<!-- Navigation -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <div class="nav-left">
+      <a href="hair.html" class="nav-link">Hair</a>
+      <a href="spa.html" class="nav-link">Spa &amp; Body</a>
+      <a href="skin.html" class="nav-link">Skin</a>
+      <a href="nails.html" class="nav-link">Nails</a>
+      <a href="glam.html" class="nav-link">Glam</a>
+    </div>
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-text">VIC</div>
+      <div class="nav-logo-sub">Salon</div>
+      <div class="nav-logo-tagline">Crafted for you</div>
+    </a>
+    <div class="nav-right">
+      <a href="about.html" class="nav-link active">About Us</a>
+      <a href="membership.html" class="nav-link">Membership</a>
+      <a href="gallery.html" class="nav-link">Gallery</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <button class="theme-toggle" id="theme-toggle" title="Toggle day/night"><i class="fas fa-sun"></i></button>
+      <a href="https://wa.me/917993994449" target="_blank" class="nav-link nav-cta">Book Now</a>
+    </div>
+    <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="hair.html" class="nav-link">Hair</a>
+  <a href="spa.html" class="nav-link">Spa &amp; Body</a>
+  <a href="skin.html" class="nav-link">Skin</a>
+  <a href="nails.html" class="nav-link">Nails</a>
+  <a href="glam.html" class="nav-link">Glam</a>
+  <a href="about.html" class="nav-link">About Us</a>
+  <a href="membership.html" class="nav-link">Membership</a>
+  <a href="gallery.html" class="nav-link">Gallery</a>
+  <a href="contact.html" class="nav-link">Contact</a>
+  <a href="https://wa.me/917993994449" target="_blank" class="nav-link nav-cta">Book Now</a>
+</div>
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('https://lh3.googleusercontent.com/p/AF1QipPccjAApaFhimvRTKvWVxsUUIT7q_GbFF2KEAEy=w1920-h1080-k-no');background-size:cover;background-position:center;"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <span class="page-hero-eyebrow">Our Story</span>
+    <h1 class="page-hero-title">About <em>VIC Salon</em></h1>
+    <p class="page-hero-sub">Born from a dream. Built with love. For you.</p>
+  </div>
+</section>
+
+<main>
+
+<!-- ══ ORIGIN STORY ══ -->
+<section class="about-body-section">
+  <div class="container">
+    <div class="about-split">
+      <div class="about-image reveal-left">
+        <img referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/p/AF1QipO09CSZU8EH2dUWGqvGjQOaEUimsdv-TZdqNE1c=w1920-h1080-k-no" alt="VIC Salon lobby Jubilee Hills" loading="lazy"/>
+        <div class="about-image-accent">
+          <div class="stat-number" style="color:var(--black)">5 ★</div>
+          <div class="stat-label" style="color:var(--black)">Google Rating</div>
+        </div>
+      </div>
+      <div class="about-text reveal-right">
+        <span class="section-eyebrow">How It All Began</span>
+        <h2 class="section-title">A Dream Built<br/><em>on Belief</em></h2>
+        <div class="gold-line"></div>
+        <p style="font-family:var(--font-elegant);font-style:italic;font-size:1.1rem;line-height:1.85;margin-bottom:20px;color:rgba(255,255,255,0.85);" class="about-lead-italic">
+          Every great story starts with a question: <em>what if?</em> Ours started with a bigger one — <em>what if beauty felt like belonging?</em>
+        </p>
+        <p style="font-size:0.9rem;line-height:1.9;margin-bottom:16px;color:rgba(255,255,255,0.7);" class="about-body-p">
+          VIC Salon was not built overnight. It was shaped by years of passion, hundreds of conversations with clients who deserved more, and a profound belief that a visit to the salon should leave you not just looking beautiful — but feeling truly seen.
+        </p>
+        <p style="font-size:0.9rem;line-height:1.9;margin-bottom:36px;color:rgba(255,255,255,0.7);" class="about-body-p">
+          Today, from our home in Jubilee Hills, Hyderabad, VIC Salon stands as a destination where artistry meets warmth — where every guest is treated not as a client, but as family.
+        </p>
+        <a href="https://wa.me/917993994449" target="_blank" class="btn btn-gold"><span>Book Your Visit</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOUNDERS STORY ══ -->
+<section class="founders-section">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-eyebrow">The Founders</span>
+      <h2 class="section-title">The Heartbeat<br/><em>Behind VIC</em></h2>
+      <div class="gold-line center"></div>
+      <p class="section-lead">Two passionate souls. One shared vision. An unwavering commitment to you.</p>
+    </div>
+
+    <div class="founders-grid">
+
+      <!-- Madhuri -->
+      <div class="founder-card reveal-left">
+        <div class="founder-avatar">M</div>
+        <span class="founder-role">Co-Founder &amp; Creative Director</span>
+        <h3 class="founder-name">Madhuri<br/>Bollaram</h3>
+        <div class="founder-story">
+          <p>
+            She grew up watching her mother spend hours in front of a mirror, trying to feel beautiful in a world that rarely made space for her. That image never left Madhuri. It became her <em>why</em> — the deep, burning reason she chose beauty as her life's calling.
+          </p>
+          <p>
+            With years of training under master stylists and hands that understood the language of hair before words could express it, Madhuri built a reputation for transformations that went beyond the surface. Her consultations are conversations. Her treatments are rituals. Her clients leave not just looking different — they leave feeling rediscovered.
+          </p>
+          <p>
+            When she co-founded VIC Salon, she brought with her every lesson, every tear, every moment of wonder she had witnessed in the chair. She designed every detail of the VIC experience — from the moment you walk in, to the way the air smells, to the exact tone of warmth you are greeted with — so that no guest ever feels ordinary.
+          </p>
+          <p>
+            <em>"I never wanted to run a salon,"</em> she often says. <em>"I wanted to create a feeling. And I wanted that feeling to belong to every woman who walked through our door."</em>
+          </p>
+        </div>
+        <div class="founder-quote">
+          <div class="founder-quote-text">"Beauty is not about changing who you are. It is about revealing who you always were."</div>
+          <div class="founder-quote-attr">— Madhuri Bollaram, Co-Founder</div>
+        </div>
+      </div>
+
+      <!-- Bhaghat -->
+      <div class="founder-card reveal-right">
+        <div class="founder-avatar">B</div>
+        <span class="founder-role">Co-Founder &amp; Wellness Director</span>
+        <h3 class="founder-name">Bhaghat<br/>G</h3>
+        <div class="founder-story">
+          <p>
+            Some people find their purpose through ambition. Bhaghat found his through empathy. As someone who had seen how a great spa treatment could restore not just the body but a person's entire sense of self — he knew that wellness was far more powerful than people gave it credit for.
+          </p>
+          <p>
+            Armed with deep expertise in wellness and spa therapies, and an instinct for creating spaces where people genuinely exhale, Bhaghat became the architect of VIC's philosophy of holistic care. The therapists he trained, the rituals he designed, the quiet luxury he curated — all of it comes from his foundational belief: that every person who closes their eyes in our spa chair deserves to feel completely safe, completely cared for, completely human.
+          </p>
+          <p>
+            He built VIC not just as a business, but as a mission — to bring world-class wellness experiences to Hyderabad in a way that felt personal, not corporate. To create a space where people come when they are stressed, sad, celebrating, or simply in need of being held in care.
+          </p>
+          <p>
+            <em>"A salon should give you back something you didn't even know you had lost,"</em> he believes. For Bhaghat, VIC Salon does exactly that — every single day.
+          </p>
+        </div>
+        <div class="founder-quote">
+          <div class="founder-quote-text">"When someone trusts you with their face, their hair, their body — they are trusting you with their confidence. That is sacred. We never forget that."</div>
+          <div class="founder-quote-attr">— Bhaghat G, Co-Founder</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Joint message -->
+    <div class="reveal" style="text-align:center;max-width:700px;margin:80px auto 0;">
+      <div class="gold-line center"></div>
+      <p style="font-family:var(--font-elegant);font-style:italic;font-size:1.2rem;line-height:1.9;color:rgba(255,255,255,0.8);margin-top:40px;" class="founders-joint-message">
+        Together, Madhuri and Bhaghat built something rare — a salon where the people who work there love what they do, and the guests who come there feel it immediately. VIC Salon is their love letter to Hyderabad. And it is crafted, always, for <em>you</em>.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TIMELINE ══ -->
+<section class="timeline-section">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-eyebrow">Our Journey</span>
+      <h2 class="section-title">Milestones That<br/><em>Define Us</em></h2>
+      <div class="gold-line center"></div>
+    </div>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-year">The Dream</div>
+        </div>
+        <div class="timeline-node"><div class="timeline-dot"></div></div>
+        <div class="timeline-right">
+          <div class="timeline-title">A Vision Takes Shape</div>
+          <div class="timeline-text">Madhuri and Bhaghat recognise a gap in Hyderabad's beauty landscape — a space that offers genuine luxury without pretension. The seed of VIC Salon is planted.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-title">Jubilee Hills Opens</div>
+          <div class="timeline-text">VIC Salon opens its doors at NBK Building, Road No. 36, Jubilee Hills. From day one, the response is overwhelming — guests speak of the warmth, the detail, the care.</div>
+        </div>
+        <div class="timeline-node"><div class="timeline-dot"></div></div>
+        <div class="timeline-right">
+          <div class="timeline-year">Grand Opening</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-year">The Spa</div>
+        </div>
+        <div class="timeline-node"><div class="timeline-dot"></div></div>
+        <div class="timeline-right">
+          <div class="timeline-title">Wellness Wing Launched</div>
+          <div class="timeline-text">The Spa &amp; Body Rituals wing opens with Thai, Balinese, and signature hot stone experiences. VIC becomes Hyderabad's most talked-about wellness destination.</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-title">5 Stars, Always</div>
+          <div class="timeline-text">VIC Salon achieves and maintains a 5-star rating on Google — driven not by campaigns, but by guests who keep returning and keep sharing. The reviews speak of connection, not just service.</div>
+        </div>
+        <div class="timeline-node"><div class="timeline-dot"></div></div>
+        <div class="timeline-right">
+          <div class="timeline-year">Recognition</div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-left">
+          <div class="timeline-year">Today</div>
+        </div>
+        <div class="timeline-node"><div class="timeline-dot"></div></div>
+        <div class="timeline-right">
+          <div class="timeline-title">120,000+ Services &amp; Growing</div>
+          <div class="timeline-text">With over 120,000 services delivered and a community of loyal members, VIC Salon continues to set the standard for luxury beauty in Hyderabad — one guest at a time.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ PHILOSOPHY ══ -->
+<section class="philosophy-section">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-eyebrow">What We Stand For</span>
+      <h2 class="section-title">Our<br/><em>Philosophy</em></h2>
+      <div class="gold-line center"></div>
+    </div>
+    <div class="philosophy-grid" style="margin-top:70px;">
+      <div class="philosophy-card reveal delay-1">
+        <div class="philosophy-icon">✦</div>
+        <h3 class="philosophy-title">Craftsmanship</h3>
+        <p class="philosophy-text">We believe beauty is a discipline. Every technique is mastered, every product is chosen with intention, and every treatment is delivered with unwavering precision.</p>
+      </div>
+      <div class="philosophy-card reveal delay-2">
+        <div class="philosophy-icon">♡</div>
+        <h3 class="philosophy-title">Human Connection</h3>
+        <p class="philosophy-text">Before any service begins, we listen. We learn your story. We understand your world. Because the best beauty is the kind that understands you.</p>
+      </div>
+      <div class="philosophy-card reveal delay-3">
+        <div class="philosophy-icon">◇</div>
+        <h3 class="philosophy-title">Understated Luxury</h3>
+        <p class="philosophy-text">Luxury should feel like ease, not effort. At VIC, opulence is in the details — the quality of silence, the warmth of a greeting, the magic in a perfectly lit mirror.</p>
+      </div>
+      <div class="philosophy-card reveal delay-2">
+        <div class="philosophy-icon">⌘</div>
+        <h3 class="philosophy-title">Continuous Growth</h3>
+        <p class="philosophy-text">We never stop learning. Our team trains constantly, our techniques evolve, and our products are always curated from the world's finest. Excellence is not a destination — it's a practice.</p>
+      </div>
+      <div class="philosophy-card reveal delay-3">
+        <div class="philosophy-icon">❋</div>
+        <h3 class="philosophy-title">Holistic Wellbeing</h3>
+        <p class="philosophy-text">True beauty is whole. It encompasses skin, hair, body, and spirit. Our services are designed not just to beautify — but to restore, to revive, to renew.</p>
+      </div>
+      <div class="philosophy-card reveal delay-4">
+        <div class="philosophy-icon">◎</div>
+        <h3 class="philosophy-title">Guest-First Always</h3>
+        <p class="philosophy-text">Every decision we make — every product we choose, every specialist we hire, every detail we design — begins and ends with one question: <em>will this serve our guests better?</em></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TEAM ══ -->
+<section class="about-body-section" style="background:var(--black)">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-eyebrow">The People Behind the Magic</span>
+      <h2 class="section-title">Our<br/><em>Expert Team</em></h2>
+      <div class="gold-line center"></div>
+      <p class="section-lead">Handpicked. Trained with passion. Dedicated to your transformation.</p>
+    </div>
+    <div class="team-section" style="margin-top:70px;">
+      <div class="team-grid">
+        <div class="team-card reveal delay-1">
+          <div class="team-avatar">M</div>
+          <div class="team-name">Madhuri Bollaram</div>
+          <div class="team-role">Creative Director &amp; Co-Founder</div>
+        </div>
+        <div class="team-card reveal delay-2">
+          <div class="team-avatar">B</div>
+          <div class="team-name">Bhaghat G</div>
+          <div class="team-role">Wellness Director &amp; Co-Founder</div>
+        </div>
+        <div class="team-card reveal delay-3">
+          <div class="team-avatar">T</div>
+          <div class="team-name">The VIC Team</div>
+          <div class="team-role">Expert Stylists &amp; Spa Therapists</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CLOSING CTA ══ -->
+<section class="about-cta-section">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-eyebrow">Your Story Starts Here</span>
+      <h2 class="section-title">Come As You Are.<br/><em>Leave Transformed.</em></h2>
+      <div class="gold-line center"></div>
+      <p class="about-cta-lead">
+        You don't need a special occasion to deserve beauty. You just need to walk through our door. We'll take it from there — with care, with skill, and with so much love for what we do.
+      </p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+        <a href="https://wa.me/917993994449" target="_blank" class="btn btn-gold"><span>Book on WhatsApp</span></a>
+        <a href="contact.html" class="btn btn-outline"><span>Get in Touch</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">VIC</div>
+        <div class="footer-logo-sub">Salon</div>
+        <p class="footer-tagline">"Crafted for you" — an elevated beauty experience in the heart of Jubilee Hills.</p>
+        <div class="social-links">
+          <a href="https://www.instagram.com/vic.salon?igsh=cjQ3dXBmNWd2Z2pq&utm_source=qr" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/share/1FY7rsANSZ/?mibextid=wwXIfr" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://youtube.com/@vicsalonjubileehills?si=YYzKoUGd2Tsro9P4" target="_blank" class="social-link"><i class="fab fa-youtube"></i></a>
+          <a href="https://share.google/dtYK5XaMEJi6wONj6" target="_blank" class="social-link"><i class="fab fa-google"></i></a>
+          <a href="https://wa.me/917993994449" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <div class="footer-links">
+          <a href="hair.html" class="footer-link">Hair Styling &amp; Treatments</a>
+          <a href="spa.html" class="footer-link">Spa &amp; Body</a>
+          <a href="skin.html" class="footer-link">Skin &amp; Facials</a>
+          <a href="nails.html" class="footer-link">Nail Services</a>
+          <a href="glam.html" class="footer-link">Glam &amp; Bridal</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Discover</div>
+        <div class="footer-links">
+          <a href="about.html" class="footer-link">About VIC Salon</a>
+          <a href="membership.html" class="footer-link">Membership</a>
+          <a href="gallery.html" class="footer-link">Gallery</a>
+          <a href="contact.html" class="footer-link">Contact Us</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Visit Us</div>
+        <div class="footer-links">
+          <div class="footer-link">NBK Building, Road No. 36<br/>Jubilee Hills, Hyderabad<br/>Telangana — 500033</div>
+          <a href="tel:+917993994449" class="footer-link" style="margin-top:12px;display:block">+91 79939 94449</a>
+          <a href="mailto:vicsalonjubileehills@gmail.com" class="footer-link">vicsalonjubileehills@gmail.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 VIC Salon. All rights reserved. Jubilee Hills, Hyderabad.</div>
+      <div class="footer-copy">Crafted with care for every guest.</div>
+    </div>
+  </div>
+</footer>
+
+<div class="float-btns">
+  <button class="float-btn float-top" title="Back to top"><i class="fas fa-chevron-up"></i></button>
+  <a href="tel:+917993994449" class="float-btn float-call" title="Call Us"><i class="fas fa-phone"></i></a>
+  <a href="https://wa.me/917993994449" target="_blank" class="float-btn float-wa" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+/* About page - fix light mode inline color on story text elements */
+(function() {
+  function fixAboutColors() {
+    var isLight = document.body.classList.contains('light-mode');
+    var darkColor = isLight ? '#333333' : 'rgba(255,255,255,0.85)';
+    var mutedColor = isLight ? '#555555' : 'rgba(255,255,255,0.7)';
+
+    document.querySelectorAll('.about-lead-italic').forEach(function(el) {
+      el.style.color = darkColor;
+    });
+    document.querySelectorAll('.about-body-p').forEach(function(el) {
+      el.style.color = mutedColor;
+    });
+    document.querySelectorAll('.founders-joint-message').forEach(function(el) {
+      el.style.color = isLight ? '#444444' : 'rgba(255,255,255,0.8)';
+    });
+  }
+
+  fixAboutColors();
+  var toggle = document.getElementById('theme-toggle');
+  if (toggle) toggle.addEventListener('click', function() {
+    setTimeout(fixAboutColors, 50);
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="referrer" content="no-referrer">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>VIC Salon | Jubilee Hills, Hyderabad — Crafted For You</title>
+<meta name="description" content="VIC Salon — Hyderabad's finest beauty destination in Jubilee Hills. Expert hair, spa, skin, nails, bridal & wellness services. Crafted for you."/>
+<meta name="keywords" content="best salon Hyderabad, VIC Salon Jubilee Hills, hair salon Jubilee Hills, spa Hyderabad, bridal salon Hyderabad, nail salon Hyderabad, facial Hyderabad, Thai massage Hyderabad, hair treatment Hyderabad"/>
+<meta property="og:title" content="VIC Salon | Jubilee Hills, Hyderabad"/>
+<meta property="og:description" content="Premium salon experience offering bespoke hair, spa, nail, skin and wellness services. Crafted for you."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://www.vicsalon.in/"/>
+<link rel="canonical" href="https://www.vicsalon.in/"/>
+<link rel="stylesheet" href="css/style.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+/* ── Signature Services Section ── */
+.signature-section { padding: 120px 0; background: var(--black); }
+.signature-intro { max-width: 640px; margin-bottom: 70px; }
+.services-grid { grid-template-columns: repeat(3, 1fr); }
+@media(max-width:900px){ .services-grid{grid-template-columns:1fr 1fr;} }
+@media(max-width:600px){ .services-grid{grid-template-columns:1fr;} }
+body.light-mode .signature-section { background: #f8f5f0 !important; }
+
+/* ── 3D Tilt Card ── */
+.tilt-card { transform-style: preserve-3d; will-change: transform; }
+.tilt-card:hover { z-index: 2; }
+
+/* ── Experience Journey Section ── */
+.journey-section {
+  padding: 140px 0;
+  background: var(--charcoal);
+  overflow: hidden;
+}
+body.light-mode .journey-section { background: #e8e4dc !important; }
+
+.journey-intro { text-align: center; margin-bottom: 80px; }
+
+.journey-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: rgba(201,168,70,0.15);
+  margin-bottom: 80px;
+}
+@media(max-width:900px){ .journey-grid { grid-template-columns: repeat(2,1fr); } }
+@media(max-width:600px){ .journey-grid { grid-template-columns: 1fr; } }
+
+.journey-step {
+  background: var(--charcoal);
+  padding: 52px 40px;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+  transition: background 0.4s ease, transform 0.4s ease;
+}
+body.light-mode .journey-step { background: #ffffff !important; }
+.journey-step::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(201,168,70,0.06) 0%, transparent 70%);
+  opacity: 0; transition: opacity 0.4s ease;
+}
+.journey-step:hover::before { opacity: 1; }
+.journey-step:hover { background: #1e1e1e; transform: translateY(-3px); }
+body.light-mode .journey-step:hover { background: #f5f0e8 !important; }
+
+.journey-step-number {
+  font-family: var(--font-serif);
+  font-size: 4rem; font-weight: 700; line-height: 1;
+  color: rgba(201,168,70,0.18);
+  position: absolute; top: 20px; right: 28px;
+  transition: color 0.4s ease;
+}
+body.light-mode .journey-step-number { color: rgba(201,168,70,0.25) !important; }
+.journey-step:hover .journey-step-number { color: rgba(201,168,70,0.35); }
+
+.journey-step-icon {
+  font-size: 1.6rem;
+  color: var(--gold);
+  margin-bottom: 20px;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.journey-step:hover .journey-step-icon { transform: scale(1.15) rotate(-5deg); }
+
+.journey-step-label {
+  font-size: 0.6rem; letter-spacing: 0.35em; text-transform: uppercase;
+  color: var(--gold); font-weight: 600; margin-bottom: 12px; display: block;
+}
+body.light-mode .journey-step-label { color: #9A7E2F !important; }
+
+.journey-step-title {
+  font-family: var(--font-serif);
+  font-size: 1.4rem; font-weight: 500; margin-bottom: 14px;
+  color: var(--white);
+}
+body.light-mode .journey-step-title { color: #1a1a1a !important; }
+
+.journey-step-desc {
+  font-size: 0.85rem; line-height: 1.75;
+  color: rgba(255,255,255,0.65);
+}
+body.light-mode .journey-step-desc { color: #555555 !important; }
+
+.journey-cta { text-align: center; }
+
+/* ── Instagram Reels Section ── */
+.reels-section {
+  padding: 100px 0;
+  background: var(--black);
+}
+body.light-mode .reels-section { background: #f0ece4 !important; }
+
+.reels-intro { text-align: center; margin-bottom: 60px; }
+
+.reels-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+@media(max-width:900px){ .reels-grid { grid-template-columns: repeat(3,1fr); } }
+@media(max-width:600px){ .reels-grid { grid-template-columns: repeat(2,1fr); } }
+
+.reel-card {
+  position: relative; border-radius: 0; overflow: hidden;
+  aspect-ratio: 9/16; cursor: pointer;
+  background: var(--charcoal);
+  border: 1px solid rgba(201,168,70,0.1);
+  transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94),
+              box-shadow 0.4s ease,
+              border-color 0.4s ease;
+  transform-style: preserve-3d;
+}
+body.light-mode .reel-card { background: #e0dbd2 !important; border-color: rgba(0,0,0,0.1) !important; }
+.reel-card:hover {
+  transform: scale(1.04) translateY(-6px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+  border-color: rgba(201,168,70,0.4);
+}
+
+.reel-thumb {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.reel-card:hover .reel-thumb { transform: scale(1.06); }
+
+.reel-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);
+  transition: background 0.4s ease;
+}
+.reel-card:hover .reel-overlay { background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.1) 100%); }
+
+.reel-play {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-50%) scale(0.9);
+  width: 52px; height: 52px; border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(6px);
+  border: 2px solid rgba(255,255,255,0.5);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 1.1rem;
+  transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+}
+.reel-card:hover .reel-play {
+  transform: translate(-50%,-50%) scale(1);
+  background: rgba(201,168,70,0.85);
+  border-color: var(--gold);
+}
+
+.reel-info {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 16px 14px 14px;
+}
+.reel-icon { color: var(--gold); font-size: 0.85rem; margin-bottom: 4px; }
+.reel-caption {
+  font-size: 0.72rem; line-height: 1.4;
+  color: rgba(255,255,255,0.9); font-weight: 500;
+  letter-spacing: 0.02em;
+}
+body.light-mode .reel-caption { color: #ffffff !important; }
+
+.reels-cta { text-align: center; margin-top: 44px; }
+
+/* ── About/Experience Split ── */
+.experience-section { padding: 140px 0; background: var(--charcoal); overflow: hidden; }
+body.light-mode .experience-section { background: #ede9e1 !important; }
+.experience-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+.experience-images { position: relative; height: 560px; }
+.exp-img-1 { position: absolute; top: 0; left: 0; width: 72%; height: 80%; object-fit: cover; }
+.exp-img-2 { position: absolute; bottom: 0; right: 0; width: 55%; height: 60%; object-fit: cover; border: 6px solid var(--charcoal); }
+body.light-mode .exp-img-2 { border-color: #ede9e1 !important; }
+.exp-gold-tag { position: absolute; top: 60%; left: 50%; transform: translateX(-50%); background: var(--gold); padding: 12px 20px; z-index: 2; white-space: nowrap; }
+.exp-gold-tag span { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700; color: var(--black); }
+.experience-text p.lead-italic { font-family:var(--font-elegant); font-style:italic; font-size:1.08rem; color:rgba(255,255,255,0.85); line-height:1.8; margin-bottom:20px; }
+body.light-mode .experience-text p.lead-italic { color: #333333 !important; }
+.experience-text p.body-para { font-size:0.88rem; color:var(--grey); line-height:1.8; margin-bottom:36px; }
+body.light-mode .experience-text p.body-para { color: #555555 !important; }
+.insta-follow { text-align: center; margin-top: 40px; }
+@media(max-width:900px){
+  .experience-inner{grid-template-columns:1fr;gap:50px;}
+  .experience-images{height:360px;}
+}
+
+/* ── Instagram Photo Grid ── */
+body.light-mode .instagram-section { background: #f0ece4 !important; }
+
+/* ── Parallax line accent ── */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto;
+  width: 80%;
+  opacity: 0.35;
+}
+</style>
+</head>
+<body>
+
+<div id="page-loader"><div class="loader-logo">VIC</div></div>
+
+<!-- Navigation -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <div class="nav-left">
+      <a href="hair.html" class="nav-link">Hair</a>
+      <a href="spa.html" class="nav-link">Spa &amp; Body</a>
+      <a href="skin.html" class="nav-link">Skin</a>
+      <a href="nails.html" class="nav-link">Nails</a>
+      <a href="glam.html" class="nav-link">Glam</a>
+    </div>
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-text">VIC</div>
+      <div class="nav-logo-sub">Salon</div>
+      <div class="nav-logo-tagline">Crafted for you</div>
+    </a>
+    <div class="nav-right">
+      <a href="about.html" class="nav-link">About Us</a>
+      <a href="membership.html" class="nav-link">Membership</a>
+      <a href="gallery.html" class="nav-link">Gallery</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <button class="theme-toggle" id="theme-toggle" title="Toggle day/night mode"><i class="fas fa-sun"></i></button>
+      <a href="https://wa.me/917993994449" target="_blank" class="nav-link nav-cta">Book Now</a>
+    </div>
+    <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="hair.html" class="nav-link">Hair</a>
+  <a href="spa.html" class="nav-link">Spa &amp; Body</a>
+  <a href="skin.html" class="nav-link">Skin</a>
+  <a href="nails.html" class="nav-link">Nails</a>
+  <a href="glam.html" class="nav-link">Glam</a>
+  <a href="about.html" class="nav-link">About Us</a>
+  <a href="membership.html" class="nav-link">Membership</a>
+  <a href="gallery.html" class="nav-link">Gallery</a>
+  <a href="contact.html" class="nav-link">Contact</a>
+  <a href="https://wa.me/917993994449" target="_blank" class="nav-link nav-cta">Book Now</a>
+</div>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-slides">
+    <div class="hero-slide" style="background-image:url('https://lh3.googleusercontent.com/p/AF1QipPYkO4zhx9g9rvXnDlIkkmgpK6-4aSzgjLzeqzx=w1920-h1080-k-no')"></div>
+    <div class="hero-slide" style="background-image:url('https://lh3.googleusercontent.com/p/AF1QipPccjAApaFhimvRTKvWVxsUUIT7q_GbFF2KEAEy=w1920-h1080-k-no')"></div>
+    <div class="hero-slide" style="background-image:url('https://lh3.googleusercontent.com/p/AF1QipO09CSZU8EH2dUWGqvGjQOaEUimsdv-TZdqNE1c=w1920-h1080-k-no')"></div>
+    <div class="hero-slide" style="background-image:url('https://lh3.googleusercontent.com/p/AF1QipOXXWrKqBE3Im5l7QliALbT_5boudPZTDQFYUqn=w1920-h1080-k-no')"></div>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Jubilee Hills, Hyderabad</span>
+    <h1 class="hero-title">Crafted<br/><em>For You</em></h1>
+    <div class="hero-divider"></div>
+    <p class="hero-subtitle">Where beauty meets artistry — an elevated experience for every guest</p>
+    <div class="hero-buttons">
+      <a href="https://wa.me/917993994449" target="_blank" class="btn btn-gold"><span>Book on WhatsApp</span></a>
+      <a href="hair.html" class="btn btn-outline"><span>Explore Services</span></a>
+    </div>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
+  <div class="hero-indicators">
+    <div class="hero-indicator active"></div>
+    <div class="hero-indicator"></div>
+    <div class="hero-indicator"></div>
+    <div class="hero-indicator"></div>
+  </div>
+</section>
+
+<!-- Scrolling Marquee Strip -->
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <div class="marquee-item"><span>Hair Styling &amp; Treatments</span><div class="marquee-dot"></div></div>
+    <div class="marquee-item"><span>Spa &amp; Body Rituals</span><div class="marquee-dot"></div></div>
+    <div class="marquee-item"><span>Skin &amp; Facials</span><div class="marquee-dot"></div></div>
+    <div class="marquee-item"><span>Nail Artistry</span><div class="marquee-dot"></div></div>
+    <div class="marquee-item"><span>Bridal &amp; Glam</span><div class="marquee-dot"></div></div>
+    <div class="marquee-item"><span>VIP Membership</span><div class="marquee-dot"></div></div>
+    <div class="marquee-item"><span>Private Lounge</span><div class="marquee-dot"></div></div>
+    <div class="marquee-item"><span>Hot Stone Massage</span><div class="marquee-dot"></div></div>
+    <div class="marquee-item"><span>Comfort Zone Facials</span><div class="marquee-dot"></div></div>
+    <div class="marquee-item"><span>Keratin &amp; Nanoplastia</span><div class="marquee-dot"></div></div>
+    <div class="marquee-item"><span>Jubilee Hills, Hyderabad</span><div class="marquee-dot"></div></div>
+    <div class="marquee-item"><span>Crafted For You ✦</span><div class="marquee-dot"></div></div>
+    <div class="marquee-item"><span>Hair Styling &amp; Treatments</span><div class="marquee-dot"></div></div>
+    <div class="marquee-item"><span>Spa &amp; Body Rituals</span><div class="marquee-dot"></div></div>
+    <div class="marquee-item"><span>Skin &amp; Facials</span><div class="marquee-dot"></div></div>
+    <div class="marquee-item"><span>Nail Artistry</span><div class="marquee-dot"></div></div>
+    <div class="marquee-item"><span>Bridal &amp; Glam</span><div class="marquee-dot"></div></div>
+    <div class="marquee-item"><span>VIP Membership</span><div class="marquee-dot"></div></div>
+    <div class="marquee-item"><span>Private Lounge</span><div class="marquee-dot"></div></div>
+    <div class="marquee-item"><span>Hot Stone Massage</span><div class="marquee-dot"></div></div>
+    <div class="marquee-item"><span>Comfort Zone Facials</span><div class="marquee-dot"></div></div>
+    <div class="marquee-item"><span>Keratin &amp; Nanoplastia</span><div class="marquee-dot"></div></div>
+    <div class="marquee-item"><span>Jubilee Hills, Hyderabad</span><div class="marquee-dot"></div></div>
+    <div class="marquee-item"><span>Crafted For You ✦</span><div class="marquee-dot"></div></div>
+  </div>
+</div>
+
+<!-- ══ SIGNATURE SERVICES ══ -->
+<section class="signature-section">
+  <div class="container">
+    <div class="signature-intro reveal">
+      <span class="section-eyebrow">Signature Services</span>
+      <h2 class="section-title">Beauty,<br/><em>Crafted for You</em></h2>
+      <div class="gold-line"></div>
+      <p class="section-lead">Every service is an experience — delivered with precision, care, and understated elegance.</p>
+    </div>
+    <div class="services-grid reveal">
+
+      <div class="service-card tilt-card" onclick="location.href='hair.html'">
+        <img referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAFNGYOsIDeEJ5k5NDNIZA7Lf01r4zg1-n5b1IKlEUqMKDuNZk6zNF9ImrHtA7SYHpZii21x3YPcMTc785QT1UgNgPnEywotKksQ09d_pKsFgOoN3a6wAk1U--wVf8zO5jnVFqpy_r7PwbYu=w1920-h1080-k-no" alt="Hair Services VIC Salon Hyderabad" loading="lazy"/>
+        <div class="service-card-overlay"></div>
+        <div class="service-card-content">
+          <span class="service-card-tag">Hair</span>
+          <h3 class="service-card-title">Hair Styling &amp; Treatments</h3>
+          <p class="service-card-desc">Cuts, colour, keratin, nanoplastia, hair spa &amp; more for women and men.</p>
+          <div class="service-card-arrow">Discover <i class="fas fa-arrow-right" style="font-size:0.7rem"></i></div>
+        </div>
+      </div>
+
+      <div class="service-card tilt-card" onclick="location.href='spa.html'">
+        <img referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/p/AF1QipN1moZfkbrpQtgRF0LDZ0_Tn1mRCAr_iqKjCGCx=w1920-h1080-k-no" alt="Spa Body Massage VIC Salon" loading="lazy"/>
+        <div class="service-card-overlay"></div>
+        <div class="service-card-content">
+          <span class="service-card-tag">Spa &amp; Body</span>
+          <h3 class="service-card-title">Spa &amp; Body Rituals</h3>
+          <p class="service-card-desc">Thai, hot stone, Balinese, deep tissue, aroma therapy &amp; signature massages.</p>
+          <div class="service-card-arrow">Discover <i class="fas fa-arrow-right" style="font-size:0.7rem"></i></div>
+        </div>
+      </div>
+
+      <div class="service-card tilt-card" onclick="location.href='skin.html'">
+        <img referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/p/AF1QipPihLFByLaMAXp47ACqKobFqK9xrYV4Oosa3ugE=w1920-h1080-k-no" alt="Skin Facial VIC Salon Jubilee Hills" loading="lazy"/>
+        <div class="service-card-overlay"></div>
+        <div class="service-card-content">
+          <span class="service-card-tag">Skin &amp; Facials</span>
+          <h3 class="service-card-title">Skin &amp; Facial Rituals</h3>
+          <p class="service-card-desc">Comfort Zone, Skeyndor, gold facials, peels, threading, waxing &amp; more.</p>
+          <div class="service-card-arrow">Discover <i class="fas fa-arrow-right" style="font-size:0.7rem"></i></div>
+        </div>
+      </div>
+
+      <div class="service-card tilt-card" onclick="location.href='nails.html'">
+        <img referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAFOuYyX9-SU0B9P7k-PECHQkl6WymEbeH72kKZ9Eik_ewqhuBRpzsHTr4aeHEk6aKzZPncJLqvN5anpQvXJDLUkIfR69B3EkogdIjwvIOr_j0h3TCLi993BkXgRydjRzzQ4axx-0FA-lSM=w1920-h1080-k-no" alt="Nail Art Nail Extensions VIC Salon" loading="lazy"/>
+        <div class="service-card-overlay"></div>
+        <div class="service-card-content">
+          <span class="service-card-tag">Nails</span>
+          <h3 class="service-card-title">Nail Artistry</h3>
+          <p class="service-card-desc">Gel X, extensions, nail art, organic manicure &amp; pedicure experiences.</p>
+          <div class="service-card-arrow">Discover <i class="fas fa-arrow-right" style="font-size:0.7rem"></i></div>
+        </div>
+      </div>
+
+      <div class="service-card tilt-card" onclick="location.href='glam.html'">
+        <img referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/p/AF1QipMfzhRz1lsyCPtDEgtr_cqpDxbEKG7zLFm6pX1M=w1920-h1080-k-no" alt="Bridal Glam VIC Salon Hyderabad" loading="lazy"/>
+        <div class="service-card-overlay"></div>
+        <div class="service-card-content">
+          <span class="service-card-tag">Glam &amp; Bridal</span>
+          <h3 class="service-card-title">Glam &amp; Beauty</h3>
+          <p class="service-card-desc">Party makeup, bridal packages, saree draping, updos &amp; party styling.</p>
+          <div class="service-card-arrow">Discover <i class="fas fa-arrow-right" style="font-size:0.7rem"></i></div>
+        </div>
+      </div>
+
+      <div class="service-card tilt-card" onclick="location.href='membership.html'">
+        <img referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/p/AF1QipNqSmWf-iF3hFUjgSZCV9ttWWdgMI6F7hMoHqyD=w1920-h1080-k-no" alt="VIC Salon VIP Membership" loading="lazy"/>
+        <div class="service-card-overlay"></div>
+        <div class="service-card-content">
+          <span class="service-card-tag">Exclusive</span>
+          <h3 class="service-card-title">VIC Membership</h3>
+          <p class="service-card-desc">Gold, Platinum, Elite &amp; VIC Exclusive Club — privileges crafted for you.</p>
+          <div class="service-card-arrow">Discover <i class="fas fa-arrow-right" style="font-size:0.7rem"></i></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ STATS ══ -->
+<div class="stats-section stats-5">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item reveal"><div class="stat-number" data-target="5" data-suffix=" ★">0 ★</div><div class="stat-label">Google Rating</div></div>
+      <div class="stat-item reveal delay-2"><div class="stat-number" data-target="84" data-suffix="%">0%</div><div class="stat-label">Repeat Guests</div></div>
+      <div class="stat-item reveal delay-3"><div class="stat-number" data-target="1" data-suffix=" : 1">0 : 1</div><div class="stat-label">Atelier Consultation</div></div>
+      <div class="stat-item reveal delay-4"><div class="stat-number" data-target="120000" data-suffix="+">0+</div><div class="stat-label">Premium Services Delivered</div></div>
+      <div class="stat-item reveal delay-5"><div class="stat-number" data-target="100" data-suffix="%">0%</div><div class="stat-label">Guest Experience Focus</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ EXPERIENCE JOURNEY — 6 Steps ══ -->
+<section class="journey-section">
+  <div class="container">
+    <div class="journey-intro reveal">
+      <span class="section-eyebrow">The VIC Method</span>
+      <h2 class="section-title">Your Beauty<br/><em>Journey</em></h2>
+      <div class="gold-line center"></div>
+      <p class="section-lead">Every visit follows a thoughtfully crafted journey — from the moment you walk in to long after you leave.</p>
+    </div>
+
+    <div class="journey-grid">
+
+      <div class="journey-step tilt-card reveal delay-1">
+        <span class="journey-step-number">01</span>
+        <span class="journey-step-icon">🤝</span>
+        <span class="journey-step-label">Step 01</span>
+        <h3 class="journey-step-title">Greeting</h3>
+        <p class="journey-step-desc">You arrive. The world slows down. A warm welcome, your preferred beverage, and the quiet assurance that you are in expert hands — this is where the magic begins.</p>
+      </div>
+
+      <div class="journey-step tilt-card reveal delay-2">
+        <span class="journey-step-number">02</span>
+        <span class="journey-step-icon">💬</span>
+        <span class="journey-step-label">Step 02</span>
+        <h3 class="journey-step-title">Discovery</h3>
+        <p class="journey-step-desc">We listen — deeply. Your lifestyle, your aspirations, your unique story. This is not a consultation; it is a conversation between artist and muse, shaping what comes next.</p>
+      </div>
+
+      <div class="journey-step tilt-card reveal delay-3">
+        <span class="journey-step-number">03</span>
+        <span class="journey-step-icon">🔍</span>
+        <span class="journey-step-label">Step 03</span>
+        <h3 class="journey-step-title">Assessment</h3>
+        <p class="journey-step-desc">Our specialists study your hair, skin, or body with clinical precision — identifying what you need and what will serve you best. No guesswork. Only expertise.</p>
+      </div>
+
+      <div class="journey-step tilt-card reveal delay-2">
+        <span class="journey-step-number">04</span>
+        <span class="journey-step-icon">✨</span>
+        <span class="journey-step-label">Step 04</span>
+        <h3 class="journey-step-title">Customisation</h3>
+        <p class="journey-step-desc">Your service is tailored from scratch — product selection, technique, timing — everything mapped to your individuality. Because no two guests are alike, and neither are their treatments.</p>
+      </div>
+
+      <div class="journey-step tilt-card reveal delay-3">
+        <span class="journey-step-number">05</span>
+        <span class="journey-step-icon">💎</span>
+        <span class="journey-step-label">Step 05</span>
+        <h3 class="journey-step-title">Execution</h3>
+        <p class="journey-step-desc">Skilled hands at work. Premium international products. An atmosphere of calm luxury. Watch as the vision comes to life — with artistry, precision, and passionate care.</p>
+      </div>
+
+      <div class="journey-step tilt-card reveal delay-4">
+        <span class="journey-step-number">06</span>
+        <span class="journey-step-icon">🌿</span>
+        <span class="journey-step-label">Step 06</span>
+        <h3 class="journey-step-title">Continuity</h3>
+        <p class="journey-step-desc">The experience doesn't end when you leave. We curate a homecare ritual, schedule your next visit, and remain your trusted beauty partner — for life.</p>
+      </div>
+
+    </div>
+
+    <div class="journey-cta reveal">
+      <a href="about.html" class="btn btn-outline"><span>Our Philosophy</span></a>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ══ ABOUT / EXPERIENCE SPLIT ══ -->
+<section class="experience-section">
+  <div class="container">
+    <div class="experience-inner">
+      <div class="experience-images reveal-left">
+        <img referrerpolicy="no-referrer" class="exp-img-1" src="https://lh3.googleusercontent.com/p/AF1QipNpkXRi-8OUJC4i3rbjRjTShWvEDSwMQJ0c7Qa2=w1920-h1080-k-no" alt="VIC Salon interior Jubilee Hills" loading="lazy"/>
+        <img referrerpolicy="no-referrer" class="exp-img-2" src="https://lh3.googleusercontent.com/p/AF1QipM4UVgXCSuz_AbuUWD9VMk1fiiJRTxUUJj70hLu=w1920-h1080-k-no" alt="VIC Salon reception lobby" loading="lazy"/>
+        <div class="exp-gold-tag"><span>Jubilee Hills · Hyderabad</span></div>
+      </div>
+      <div class="experience-text reveal-right">
+        <span class="section-eyebrow">The VIC Experience</span>
+        <h2 class="section-title">Where Craft<br/><em>Meets Care</em></h2>
+        <div class="gold-line"></div>
+        <p class="lead-italic">VIC Salon is an invitation to experience precision, artistry, and wellness — thoughtfully designed for those who expect more than routine beauty.</p>
+        <p class="body-para">Nestled in the heart of Jubilee Hills, Hyderabad, our salon blends state-of-the-art treatments with an atmosphere of warmth and elegance. Every service is tailored to your unique needs, delivered by expertly trained professionals who are passionate about their craft.</p>
+        <a href="about.html" class="btn btn-outline"><span>Our Story</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ GOOGLE REVIEWS CAROUSEL ══ -->
+<section class="reviews-section">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-eyebrow">Guest Testimonials</span>
+      <h2 class="section-title">What Our<br/><em>Guests Say</em></h2>
+      <div class="gold-line center"></div>
+      <p class="section-lead">Real words from real guests — on Google</p>
+    </div>
+    <div class="reviews-carousel reveal">
+      <div class="reviews-track">
+
+        <div class="review-card-v2">
+          <div class="review-stars-v2">★★★★★</div>
+          <p class="review-quote">"Absolutely stunning salon! The ambiance is breathtaking and the services are world-class. My hair treatment left my hair feeling silky smooth. VIC is now my go-to salon in Hyderabad."</p>
+          <div class="review-author-v2">
+            <div class="review-avatar-v2">P</div>
+            <div><div class="review-name-v2">Priya Reddy</div><div class="review-meta"><i class="fab fa-google review-g-icon"></i><span>Google · 5.0 ★</span></div></div>
+          </div>
+        </div>
+
+        <div class="review-card-v2">
+          <div class="review-stars-v2">★★★★★</div>
+          <p class="review-quote">"The hot stone massage was absolutely divine. Such a luxurious experience — the therapists are incredibly skilled. The private spa rooms are beautifully designed. A true gem in Jubilee Hills."</p>
+          <div class="review-author-v2">
+            <div class="review-avatar-v2">A</div>
+            <div><div class="review-name-v2">Ananya Sharma</div><div class="review-meta"><i class="fab fa-google review-g-icon"></i><span>Google · 5.0 ★</span></div></div>
+          </div>
+        </div>
+
+        <div class="review-card-v2">
+          <div class="review-stars-v2">★★★★★</div>
+          <p class="review-quote">"Got my bridal makeup done here and I was blown away. The team was professional and made me feel like royalty. The VIP lounge is stunning. Highly recommend VIC Salon to every bride!"</p>
+          <div class="review-author-v2">
+            <div class="review-avatar-v2">S</div>
+            <div><div class="review-name-v2">Sneha Kulkarni</div><div class="review-meta"><i class="fab fa-google review-g-icon"></i><span>Google · 5.0 ★</span></div></div>
+          </div>
+        </div>
+
+        <div class="review-card-v2">
+          <div class="review-stars-v2">★★★★★</div>
+          <p class="review-quote">"The nail art here is next-level! I tried their organic pedicure and it was an experience in itself — the green velvet chairs, the ambiance, everything felt premium. Will be coming back every month."</p>
+          <div class="review-author-v2">
+            <div class="review-avatar-v2">R</div>
+            <div><div class="review-name-v2">Rithika Menon</div><div class="review-meta"><i class="fab fa-google review-g-icon"></i><span>Google · 5.0 ★</span></div></div>
+          </div>
+        </div>
+
+        <div class="review-card-v2">
+          <div class="review-stars-v2">★★★★★</div>
+          <p class="review-quote">"Best salon experience I have ever had in Hyderabad. The Comfort Zone facial left my skin glowing for weeks. The ambiance, the staff, the service — all absolutely top notch. VIC Salon is unmatched."</p>
+          <div class="review-author-v2">
+            <div class="review-avatar-v2">N</div>
+            <div><div class="review-name-v2">Nisha Agarwal</div><div class="review-meta"><i class="fab fa-google review-g-icon"></i><span>Google · 5.0 ★</span></div></div>
+          </div>
+        </div>
+
+        <div class="review-card-v2">
+          <div class="review-stars-v2">★★★★★</div>
+          <p class="review-quote">"Went for a Thai massage and the Balinese was equally incredible. The 'Beauty, Bottled' wall is gorgeous — they carry only premium international products. The entire vibe is luxurious yet welcoming."</p>
+          <div class="review-author-v2">
+            <div class="review-avatar-v2">K</div>
+            <div><div class="review-name-v2">Kavya Srinivas</div><div class="review-meta"><i class="fab fa-google review-g-icon"></i><span>Google · 5.0 ★</span></div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="reviews-nav reveal">
+      <button class="rev-btn" id="rev-prev"><i class="fas fa-chevron-left"></i></button>
+      <div class="rev-dots">
+        <div class="rev-dot active"></div>
+        <div class="rev-dot"></div>
+        <div class="rev-dot"></div>
+        <div class="rev-dot"></div>
+      </div>
+      <button class="rev-btn" id="rev-next"><i class="fas fa-chevron-right"></i></button>
+    </div>
+    <div class="reviews-cta reveal">
+      <a href="https://share.google/dtYK5XaMEJi6wONj6" target="_blank" class="btn btn-outline">
+        <i class="fab fa-google"></i> <span>Read All Reviews on Google</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ INSTAGRAM REELS ══ -->
+<section class="reels-section">
+  <div class="container">
+    <div class="reels-intro reveal">
+      <span class="section-eyebrow">@vic.salon on Instagram</span>
+      <h2 class="section-title">Watch Us<br/><em>Create Magic</em></h2>
+      <div class="gold-line center"></div>
+      <p class="section-lead">From glam transformations to nail art that speaks — our reels tell the story best.</p>
+    </div>
+
+    <div class="reels-grid reveal">
+
+      <a href="https://www.instagram.com/vic.salon/reel/DX_cxl9xNbf/" target="_blank" class="reel-card" aria-label="Too glam to give a damn">
+        <img referrerpolicy="no-referrer" class="reel-thumb" src="https://lh3.googleusercontent.com/p/AF1QipNiNmTv7BPlbtcuPUNUJ3ejia-BGi6MDVOXB8wM=w1920-h1080-k-no" alt="VIC Salon Reel - Too glam to give a damn" loading="lazy"/>
+        <div class="reel-overlay"></div>
+        <div class="reel-play"><i class="fas fa-play" style="margin-left:3px"></i></div>
+        <div class="reel-info">
+          <div class="reel-icon"><i class="fab fa-instagram"></i></div>
+          <div class="reel-caption">Too glam to give a damn 💋</div>
+        </div>
+      </a>
+
+      <a href="https://www.instagram.com/vic.salon/reel/DXjFblPEcuR/" target="_blank" class="reel-card" aria-label="Not just nails, it's a whole vibe">
+        <img referrerpolicy="no-referrer" class="reel-thumb" src="https://lh3.googleusercontent.com/p/AF1QipNxCv_3TAgcXJLO9Dvo6e9YludOx7fEd1V4_H1u=w1920-h1080-k-no" alt="VIC Salon Reel - Nails vibe" loading="lazy"/>
+        <div class="reel-overlay"></div>
+        <div class="reel-play"><i class="fas fa-play" style="margin-left:3px"></i></div>
+        <div class="reel-info">
+          <div class="reel-icon"><i class="fab fa-instagram"></i></div>
+          <div class="reel-caption">Not just nails — it's a whole vibe ✨</div>
+        </div>
+      </a>
+
+      <a href="https://www.instagram.com/vic.salon/reel/DXcM3GUEn_I/" target="_blank" class="reel-card" aria-label="Flawless finish">
+        <img referrerpolicy="no-referrer" class="reel-thumb" src="https://lh3.googleusercontent.com/p/AF1QipMCMVEhwi7FPExdN_9i4hfNTC9YZIViJGhilHVn=w1920-h1080-k-no" alt="VIC Salon Reel - Flawless Finish" loading="lazy"/>
+        <div class="reel-overlay"></div>
+        <div class="reel-play"><i class="fas fa-play" style="margin-left:3px"></i></div>
+        <div class="reel-info">
+          <div class="reel-icon"><i class="fab fa-instagram"></i></div>
+          <div class="reel-caption">Flawless finish 💅</div>
+        </div>
+      </a>
+
+      <a href="https://www.instagram.com/vic.salon/reel/DXOeNqSke2O/" target="_blank" class="reel-card" aria-label="Summer nails">
+        <img referrerpolicy="no-referrer" class="reel-thumb" src="https://lh3.googleusercontent.com/p/AF1QipMnbGTDsybQeLLlFbOCPyu-0-ZCE5PiuERdY8uV=w1920-h1080-k-no" alt="VIC Salon Reel - Summer Nails" loading="lazy"/>
+        <div class="reel-overlay"></div>
+        <div class="reel-play"><i class="fas fa-play" style="margin-left:3px"></i></div>
+        <div class="reel-info">
+          <div class="reel-icon"><i class="fab fa-instagram"></i></div>
+          <div class="reel-caption">Summer nails are here 🌸</div>
+        </div>
+      </a>
+
+      <a href="https://www.instagram.com/vic.salon/reel/DXEGmugkUrx/" target="_blank" class="reel-card" aria-label="That one nail appointment">
+        <img referrerpolicy="no-referrer" class="reel-thumb" src="https://lh3.googleusercontent.com/p/AF1QipOhVZvpQIRY4_E1x6cX3TugRTBAWbXWd3Mh6eGq=w1920-h1080-k-no" alt="VIC Salon Reel - Nail Appointment" loading="lazy"/>
+        <div class="reel-overlay"></div>
+        <div class="reel-play"><i class="fas fa-play" style="margin-left:3px"></i></div>
+        <div class="reel-info">
+          <div class="reel-icon"><i class="fab fa-instagram"></i></div>
+          <div class="reel-caption">That one nail appointment 🖤</div>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="reels-cta reveal">
+      <a href="https://www.instagram.com/vic.salon?igsh=cjQ3dXBmNWd2Z2pq&utm_source=qr" target="_blank" class="btn btn-outline">
+        <i class="fab fa-instagram"></i> <span>Watch More on Instagram</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ INSTAGRAM PHOTO GRID ══ -->
+<section class="instagram-section">
+  <div class="container">
+    <div class="text-center reveal">
+      <span class="section-eyebrow">@vic.salon</span>
+      <h2 class="section-title">Join Us on<br/><em>Instagram</em></h2>
+      <div class="gold-line center"></div>
+    </div>
+    <div class="insta-grid reveal">
+      <div class="insta-item"><img referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/p/AF1QipNGDQFgd037PmuT8y5JqIrhzxKKo8veZ54s_dvP=w1920-h1080-k-no" alt="VIC Salon Beauty Bottled Wall" loading="lazy"/><div class="insta-item-overlay"><span class="insta-icon"><i class="fab fa-instagram"></i></span></div></div>
+      <div class="insta-item"><img referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/p/AF1QipMRaXh-FBYCGVbz5CwkaZcTpUA4ronC6PHrBxGH=w1920-h1080-k-no" alt="VIC Salon Nail Pedicure" loading="lazy"/><div class="insta-item-overlay"><span class="insta-icon"><i class="fab fa-instagram"></i></span></div></div>
+      <div class="insta-item"><img referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/p/AF1QipOjckk5i4BSyDL4Ar7C--JLxRkwGlCEUCKSvQn1=w1920-h1080-k-no" alt="VIC Salon Hair Styling" loading="lazy"/><div class="insta-item-overlay"><span class="insta-icon"><i class="fab fa-instagram"></i></span></div></div>
+      <div class="insta-item"><img referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/p/AF1QipPYkO4zhx9g9rvXnDlIkkmgpK6-4aSzgjLzeqzx=w1920-h1080-k-no" alt="VIC Salon Hot Stone Spa" loading="lazy"/><div class="insta-item-overlay"><span class="insta-icon"><i class="fab fa-instagram"></i></span></div></div>
+    </div>
+    <div class="insta-follow reveal">
+      <a href="https://www.instagram.com/vic.salon?igsh=cjQ3dXBmNWd2Z2pq&utm_source=qr" target="_blank" class="btn btn-outline">
+        <i class="fab fa-instagram"></i> <span>Follow @vic.salon</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">VIC</div>
+        <div class="footer-logo-sub">Salon</div>
+        <p class="footer-tagline">"Crafted for you" — an elevated beauty experience in the heart of Jubilee Hills.</p>
+        <div class="social-links">
+          <a href="https://www.instagram.com/vic.salon?igsh=cjQ3dXBmNWd2Z2pq&utm_source=qr" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/share/1FY7rsANSZ/?mibextid=wwXIfr" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://youtube.com/@vicsalonjubileehills?si=YYzKoUGd2Tsro9P4" target="_blank" class="social-link"><i class="fab fa-youtube"></i></a>
+          <a href="https://share.google/dtYK5XaMEJi6wONj6" target="_blank" class="social-link"><i class="fab fa-google"></i></a>
+          <a href="https://wa.me/917993994449" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <div class="footer-links">
+          <a href="hair.html" class="footer-link">Hair Styling &amp; Treatments</a>
+          <a href="spa.html" class="footer-link">Spa &amp; Body</a>
+          <a href="skin.html" class="footer-link">Skin &amp; Facials</a>
+          <a href="nails.html" class="footer-link">Nail Services</a>
+          <a href="glam.html" class="footer-link">Glam &amp; Bridal</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Discover</div>
+        <div class="footer-links">
+          <a href="about.html" class="footer-link">About VIC Salon</a>
+          <a href="membership.html" class="footer-link">Membership</a>
+          <a href="gallery.html" class="footer-link">Gallery</a>
+          <a href="contact.html" class="footer-link">Contact Us</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Visit Us</div>
+        <div class="footer-links">
+          <div class="footer-link">NBK Building, Road No. 36<br/>Jubilee Hills, Hyderabad<br/>Telangana — 500033</div>
+          <a href="tel:+917993994449" class="footer-link" style="margin-top:12px;display:block">+91 79939 94449</a>
+          <a href="mailto:vicsalonjubileehills@gmail.com" class="footer-link">vicsalonjubileehills@gmail.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 VIC Salon. All rights reserved. Jubilee Hills, Hyderabad.</div>
+      <div class="footer-copy">Crafted with care for every guest.</div>
+    </div>
+  </div>
+</footer>
+
+<div class="float-btns">
+  <button class="float-btn float-top" title="Back to top"><i class="fas fa-chevron-up"></i></button>
+  <a href="tel:+917993994449" class="float-btn float-call" title="Call Us"><i class="fas fa-phone"></i></a>
+  <a href="https://wa.me/917993994449" target="_blank" class="float-btn float-wa" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+</div>
+
+<div id="lightbox" class="lightbox">
+  <span id="lightbox-close" class="lightbox-close">&times;</span>
+  <span id="lightbox-prev" class="lightbox-prev">&#8249;</span>
+  <img referrerpolicy="no-referrer" id="lightbox-img" src="" alt="VIC Salon"/>
+  <span id="lightbox-next" class="lightbox-next">&#8250;</span>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+/* ── 3D TILT EFFECT on .tilt-card ── */
+(function() {
+  const TILT_MAX = 12; // max degrees
+
+  function applyTilt(el, e) {
+    const rect = el.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const dx = (e.clientX - cx) / (rect.width / 2);
+    const dy = (e.clientY - cy) / (rect.height / 2);
+    const rotX = -dy * TILT_MAX;
+    const rotY =  dx * TILT_MAX;
+    el.style.transform = `perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.03)`;
+  }
+
+  function resetTilt(el) {
+    el.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) scale(1)';
+    el.style.transition = 'transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94)';
+  }
+
+  document.querySelectorAll('.tilt-card').forEach(function(card) {
+    card.addEventListener('mousemove', function(e) {
+      card.style.transition = 'transform 0.1s linear';
+      applyTilt(card, e);
+    });
+    card.addEventListener('mouseleave', function() {
+      resetTilt(card);
+    });
+  });
+})();
+
+/* ── PARALLAX SCROLL on experience images ── */
+(function() {
+  const img1 = document.querySelector('.exp-img-1');
+  const img2 = document.querySelector('.exp-img-2');
+  if (!img1 || !img2) return;
+  window.addEventListener('scroll', function() {
+    const scrollY = window.scrollY;
+    const section = document.querySelector('.experience-section');
+    if (!section) return;
+    const sTop = section.offsetTop;
+    const diff = scrollY - sTop;
+    if (diff > -600 && diff < 800) {
+      img1.style.transform = 'translateY(' + (diff * 0.06) + 'px)';
+      img2.style.transform = 'translateY(' + (-diff * 0.04) + 'px)';
+    }
+  }, { passive: true });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+╔══════════════════════════════════════════════════════════════╗
+║           VIC SALON — Photo Naming Guide                     ║
+║   Place all photos in the "images/" folder                   ║
+╚══════════════════════════════════════════════════════════════╝
+
+Rename your 20 photos EXACTLY as listed below and drop them
+into the  vic-salon/images/  folder.
+
+No.  Filename to use            What it shows
+────────────────────────────────────────────────────────────────
+ 1.  men-styling.jpg           Men's styling area (neon wavy mirrors, 3 chairs)
+ 2.  (logo.png)                Logo — NOT needed, website uses CSS logo
+ 3.  women-styling-1.jpg       Women's room (round organic mirrors, warm beige)
+ 4.  women-styling-2.jpg       Women's room alternate angle (door visible)
+ 5.  spa-thai.jpg              Amber massage room (floor-level mat, bolster)
+ 6.  spa-room-1.jpg            Treatment room (wall sconces, art on walls)
+ 7.  skin-facial-1.jpg         Skin room (facial machine, organised products)
+ 8.  skin-facial-2.jpg         Skin room alternate angle
+ 9.  reception.jpg             Reception lobby (chandelier, VIC sign, wavy desk)
+10.  spa-hotstone-1.jpg        Luxury spa suite (hot stones, product shelves)
+11.  spa-hotstone-2.jpg        Hot stone massage close up
+12.  vip-barber.jpg            VIP barber suite (dark chair, TV, organic sofa)
+13.  beauty-wall.jpg           "Beauty, Bottled" curved illuminated shelf wall
+14.  nail-pedi.jpg             Nail pedicure lounge (green diamond chairs)
+15.  salon-main.jpg            Main salon floor wide (all zones visible)
+16.  lounge-sculpture.jpg      Sculptural art wall with cream cloud chairs
+17.  hairwash-1.jpg            Hair wash area (Private Lounge door visible)
+18.  hairwash-2.jpg            Hair wash recliners (4 cream chairs front view)
+19.  salon-overview.jpg        Full salon overview (all services zones)
+20.  salon-nails.jpg           Salon with nail area + "Nail the Moment" sign
+
+════════════════════════════════════════════════════════════════
+IMPORTANT:
+- File names are case-sensitive. Use exactly as written above.
+- Supported formats: .jpg or .jpeg (rename .png to .jpg if needed)
+- All images should be placed in: vic-salon/images/
+════════════════════════════════════════════════════════════════

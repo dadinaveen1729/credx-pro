@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contact VIC Salon | Jubilee Hills, Hyderabad</title>
+<meta name="description" content="Contact VIC Salon in Jubilee Hills, Hyderabad. Book appointments, get directions, or reach us by phone, WhatsApp or email. NBK Building, Road No. 36, Jubilee Hills."/>
+<meta name="keywords" content="VIC Salon contact, salon Jubilee Hills address, book appointment Hyderabad salon, VIC Salon phone number, salon near me Jubilee Hills"/>
+<meta property="og:title" content="Contact VIC Salon | Jubilee Hills, Hyderabad"/>
+<meta property="og:description" content="Visit VIC Salon at NBK Building, Road No. 36, Jubilee Hills, Hyderabad. Book your appointment today."/>
+<meta property="og:type" content="website"/>
+<link rel="canonical" href="https://www.vicsalon.in/contact.html"/>
+<link rel="stylesheet" href="css/style.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 60px;
+  align-items: start;
+}
+.contact-info-block {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+.contact-info-item {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.contact-info-icon {
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(201,168,70,0.35);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  font-size: 1rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.contact-info-text { flex: 1; }
+.contact-info-label {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+.contact-info-value {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.7;
+}
+.contact-info-value a {
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.contact-info-value a:hover { color: var(--gold); }
+
+/* Hours table */
+.hours-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+.hours-table td { padding: 5px 0; font-size: 0.82rem; color: rgba(255,255,255,0.7); }
+.hours-table td:last-child { text-align: right; color: rgba(255,255,255,0.5); }
+
+/* Form */
+.contact-form { background: var(--charcoal); padding: 48px 44px; border: 1px solid rgba(201,168,70,0.15); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.form-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+.form-group label {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  padding: 14px 16px;
+  outline: none;
+  transition: border-color 0.3s;
+  border-radius: 0;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: rgba(201,168,70,0.5);
+}
+.form-group select option { background: #1a1a1a; }
+.form-group textarea { resize: vertical; min-height: 130px; }
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 40px 20px;
+}
+.form-success .form-success-icon {
+  font-size: 2.5rem;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+.form-success p {
+  font-family: var(--font-elegant);
+  font-style: italic;
+  color: var(--grey);
+  font-size: 1.05rem;
+}
+
+/* Map */
+.map-section { margin-top: 80px; }
+.map-wrapper {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  border: 1px solid rgba(201,168,70,0.2);
+  overflow: hidden;
+}
+.map-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  filter: grayscale(30%) brightness(0.85);
+}
+.map-overlay-pin {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: var(--black);
+  border-top: 1px solid rgba(201,168,70,0.25);
+  border-right: 1px solid rgba(201,168,70,0.25);
+  padding: 20px 28px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.map-overlay-pin i { color: var(--gold); font-size: 1.1rem; }
+.map-overlay-pin span { font-size: 0.8rem; color: rgba(255,255,255,0.7); }
+
+/* Social strip */
+.contact-social-strip {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+.contact-social-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  transition: all 0.3s;
+}
+.contact-social-btn:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+@media(max-width:900px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+  .contact-form { padding: 36px 28px; }
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+  .map-wrapper { height: 300px; }
+}
+@media(max-width:480px) {
+  .contact-form { padding: 28px 20px; }
+}
+</style>
+</head>
+<body>
+<div id="page-loader"><div class="loader-logo">VIC</div></div>
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <div class="nav-left"><a href="hair.html" class="nav-link">Hair</a><a href="spa.html" class="nav-link">Spa &amp; Body</a><a href="skin.html" class="nav-link">Skin</a><a href="nails.html" class="nav-link">Nails</a><a href="glam.html" class="nav-link">Glam</a></div>
+    <a href="index.html" class="nav-logo"><div class="nav-logo-text">VIC</div><div class="nav-logo-sub">Salon</div><div class="nav-logo-tagline">Crafted for you</div></a>
+    <div class="nav-right"><a href="about.html" class="nav-link">About Us</a><a href="membership.html" class="nav-link">Membership</a><a href="gallery.html" class="nav-link">Gallery</a><a href="contact.html" class="nav-link active">Contact</a><button class="theme-toggle" id="theme-toggle" title="Toggle day/night"><i class="fas fa-sun"></i></button><a href="https://wa.me/917993994449" target="_blank" class="nav-link nav-cta">Book Now</a></div>
+    <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="hair.html" class="nav-link">Hair</a><a href="spa.html" class="nav-link">Spa &amp; Body</a><a href="skin.html" class="nav-link">Skin</a><a href="nails.html" class="nav-link">Nails</a><a href="glam.html" class="nav-link">Glam</a><a href="about.html" class="nav-link">About Us</a><a href="membership.html" class="nav-link">Membership</a><a href="gallery.html" class="nav-link">Gallery</a><a href="contact.html" class="nav-link">Contact</a><a href="https://wa.me/917993994449" target="_blank" class="nav-link nav-cta">Book Now</a>
+</div>
+
+<section class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('https://lh3.googleusercontent.com/p/AF1QipPYkO4zhx9g9rvXnDlIkkmgpK6-4aSzgjLzeqzx=w1920-h1080-k-no');background-size:cover;background-position:center;"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <span class="page-hero-eyebrow">We'd Love to Hear from You</span>
+    <h1 class="page-hero-title">Visit <em>VIC Salon</em></h1>
+    <p class="page-hero-sub">Jubilee Hills, Hyderabad — Crafted for you</p>
+  </div>
+</section>
+
+<main style="background:var(--black);padding:80px 0;">
+<div class="container">
+
+  <div class="text-center reveal" style="margin-bottom:70px">
+    <span class="section-eyebrow">Get in Touch</span>
+    <h2 class="section-title">Contact <em>Us</em></h2>
+    <div class="gold-line center"></div>
+    <p style="font-family:var(--font-elegant);font-style:italic;color:var(--grey);font-size:1.05rem">Book an appointment, ask a question, or simply say hello.</p>
+  </div>
+
+  <div class="contact-grid reveal">
+
+    <!-- Left: Contact Info -->
+    <div class="contact-info-block">
+
+      <div class="contact-info-item">
+        <div class="contact-info-icon"><i class="fas fa-map-marker-alt"></i></div>
+        <div class="contact-info-text">
+          <div class="contact-info-label">Address</div>
+          <div class="contact-info-value">
+            NBK Building, Road No. 36<br/>
+            Jubilee Hills, Hyderabad — 500 033<br/>
+            Telangana, India
+          </div>
+          <a href="https://share.google/dtYK5XaMEJi6wONj6" target="_blank" style="display:inline-flex;align-items:center;gap:6px;color:var(--gold);font-size:0.75rem;font-family:var(--font-sans);letter-spacing:0.1em;text-decoration:none;margin-top:10px;text-transform:uppercase;">
+            <i class="fas fa-directions"></i> Get Directions
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-info-item">
+        <div class="contact-info-icon"><i class="fas fa-phone"></i></div>
+        <div class="contact-info-text">
+          <div class="contact-info-label">Phone</div>
+          <div class="contact-info-value">
+            <a href="tel:+917993994449">+91 79939 94449</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-info-item">
+        <div class="contact-info-icon"><i class="fab fa-whatsapp"></i></div>
+        <div class="contact-info-text">
+          <div class="contact-info-label">WhatsApp</div>
+          <div class="contact-info-value">
+            <a href="https://wa.me/917993994449" target="_blank">+91 79939 94449</a><br/>
+            <span style="font-size:0.78rem;color:var(--grey)">Fastest way to book an appointment</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-info-item">
+        <div class="contact-info-icon"><i class="fas fa-envelope"></i></div>
+        <div class="contact-info-text">
+          <div class="contact-info-label">Email</div>
+          <div class="contact-info-value">
+            <a href="mailto:vicsalonjubileehills@gmail.com">vicsalonjubileehills@gmail.com</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-info-item">
+        <div class="contact-info-icon"><i class="fas fa-clock"></i></div>
+        <div class="contact-info-text">
+          <div class="contact-info-label">Working Hours</div>
+          <div class="contact-info-value">
+            <table class="hours-table">
+              <tr><td>Monday – Friday</td><td>10:00 AM – 8:30 PM</td></tr>
+              <tr><td>Saturday</td><td>10:00 AM – 8:30 PM</td></tr>
+              <tr><td>Sunday</td><td>10:00 AM – 7:00 PM</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Social Links -->
+      <div>
+        <div class="contact-info-label" style="margin-bottom:16px">Follow &amp; Connect</div>
+        <div class="contact-social-strip">
+          <a href="https://www.instagram.com/vic.salon?igsh=cjQ3dXBmNWd2Z2pq&utm_source=qr" target="_blank" class="contact-social-btn">
+            <i class="fab fa-instagram"></i> Instagram
+          </a>
+          <a href="https://www.facebook.com/share/1FY7rsANSZ/?mibextid=wwXIfr" target="_blank" class="contact-social-btn">
+            <i class="fab fa-facebook-f"></i> Facebook
+          </a>
+          <a href="https://youtube.com/@vicsalonjubileehills?si=YYzKoUGd2Tsro9P4" target="_blank" class="contact-social-btn">
+            <i class="fab fa-youtube"></i> YouTube
+          </a>
+          <a href="https://share.google/dtYK5XaMEJi6wONj6" target="_blank" class="contact-social-btn">
+            <i class="fab fa-google"></i> Google Maps
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right: Form -->
+    <div class="contact-form reveal">
+      <div style="margin-bottom:32px">
+        <span class="section-eyebrow">Send a Message</span>
+        <h3 style="font-family:var(--font-serif);font-size:1.5rem;font-weight:400;margin-top:8px">Book or <em style="font-style:italic;color:var(--gold)">Enquire</em></h3>
+      </div>
+      <form id="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Full name" required/>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX" required/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com"/>
+        </div>
+        <div class="form-group">
+          <label for="service">Service of Interest</label>
+          <select id="service" name="service">
+            <option value="">— Select a service —</option>
+            <option value="hair">Hair Services</option>
+            <option value="spa">Spa &amp; Body</option>
+            <option value="skin">Skin &amp; Facials</option>
+            <option value="nails">Nail Artistry</option>
+            <option value="glam">Glam &amp; Bridal</option>
+            <option value="membership">Membership</option>
+            <option value="other">Other / General Enquiry</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Your Message</label>
+          <textarea id="message" name="message" placeholder="Tell us how we can help you…"></textarea>
+        </div>
+        <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center">
+          <span>Send Message</span>
+        </button>
+        <p style="font-size:0.7rem;color:var(--grey);margin-top:16px;text-align:center;font-style:italic">Or reach us instantly on <a href="https://wa.me/917993994449" target="_blank" style="color:var(--gold);text-decoration:none">WhatsApp ↗</a></p>
+      </form>
+      <div class="form-success" id="form-success">
+        <div class="form-success-icon"><i class="fas fa-check-circle"></i></div>
+        <h3 style="font-family:var(--font-serif);font-size:1.4rem;font-weight:400;margin-bottom:12px">Thank you!</h3>
+        <p>Your message has been received. Our team will be in touch with you shortly.</p>
+        <a href="https://wa.me/917993994449" target="_blank" class="btn btn-outline" style="margin-top:28px;display:inline-flex"><span>Continue on WhatsApp</span></a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Map -->
+  <div class="map-section reveal">
+    <div class="text-center" style="margin-bottom:40px">
+      <span class="section-eyebrow">Find Us</span>
+      <h2 class="section-title">Our <em>Location</em></h2>
+      <div class="gold-line center"></div>
+    </div>
+    <div class="map-wrapper">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.7!2d78.408!3d17.428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sVIC+Salon+Jubilee+Hills!5e0!3m2!1sen!2sin!4v1"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="VIC Salon Location Map"
+      ></iframe>
+      <div class="map-overlay-pin">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>NBK Building, Road No. 36, Jubilee Hills, Hyderabad</span>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:24px">
+      <a href="https://share.google/dtYK5XaMEJi6wONj6" target="_blank" class="btn btn-outline"><span><i class="fab fa-google"></i> &nbsp;Open in Google Maps</span></a>
+    </div>
+  </div>
+
+  <!-- Bottom CTA -->
+  <div style="text-align:center;padding:80px 0 20px" class="reveal">
+    <span class="section-eyebrow">Ready?</span>
+    <h2 class="section-title">Book Your <em>Experience</em></h2>
+    <div class="gold-line center"></div>
+    <p style="font-family:var(--font-elegant);font-style:italic;color:var(--grey);font-size:1.1rem;margin-bottom:36px">The quickest way to secure your appointment is via WhatsApp.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+      <a href="https://wa.me/917993994449" target="_blank" class="btn btn-gold"><i class="fab fa-whatsapp"></i> &nbsp;<span>Book on WhatsApp</span></a>
+      <a href="tel:+917993994449" class="btn btn-outline"><span>Call +91 79939 94449</span></a>
+    </div>
+  </div>
+
+</div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="footer-logo">VIC</div><div class="footer-logo-sub">Salon</div><p class="footer-tagline">"Crafted for you"</p><div class="social-links"><a href="https://www.instagram.com/vic.salon?igsh=cjQ3dXBmNWd2Z2pq&utm_source=qr" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a><a href="https://www.facebook.com/share/1FY7rsANSZ/?mibextid=wwXIfr" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a><a href="https://youtube.com/@vicsalonjubileehills?si=YYzKoUGd2Tsro9P4" target="_blank" class="social-link"><i class="fab fa-youtube"></i></a><a href="https://wa.me/917993994449" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a></div></div>
+      <div><div class="footer-col-title">Services</div><div class="footer-links"><a href="hair.html" class="footer-link">Hair</a><a href="spa.html" class="footer-link">Spa &amp; Body</a><a href="skin.html" class="footer-link">Skin &amp; Facials</a><a href="nails.html" class="footer-link">Nails</a><a href="glam.html" class="footer-link">Glam &amp; Bridal</a></div></div>
+      <div><div class="footer-col-title">Discover</div><div class="footer-links"><a href="about.html" class="footer-link">About</a><a href="membership.html" class="footer-link">Membership</a><a href="gallery.html" class="footer-link">Gallery</a><a href="contact.html" class="footer-link">Contact</a></div></div>
+      <div><div class="footer-col-title">Visit</div><div class="footer-links"><div class="footer-link" style="color:rgba(255,255,255,0.6)">NBK Building, Road No. 36<br/>Jubilee Hills, Hyderabad</div><a href="tel:+917993994449" class="footer-link" style="margin-top:12px;display:block">+91 79939 94449</a><a href="mailto:vicsalonjubileehills@gmail.com" class="footer-link">vicsalonjubileehills@gmail.com</a></div></div>
+    </div>
+    <div class="footer-bottom"><div class="footer-copy">© 2025 VIC Salon. All rights reserved.</div></div>
+  </div>
+</footer>
+<div class="float-btns"><button class="float-btn float-top"><i class="fas fa-chevron-up"></i></button><a href="tel:+917993994449" class="float-btn float-call"><i class="fas fa-phone"></i></a><a href="https://wa.me/917993994449" target="_blank" class="float-btn float-wa"><i class="fab fa-whatsapp"></i></a></div>
+<script src="js/main.js"></script>
+<script>
+// Contact form handler
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const name = document.getElementById('name').value;
+  const phone = document.getElementById('phone').value;
+  const service = document.getElementById('service').value;
+  const message = document.getElementById('message').value;
+
+  // Build WhatsApp message
+  let waText = `Hello VIC Salon! I'd like to enquire.%0A%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}`;
+  if (service) waText += `%0AService: ${encodeURIComponent(service)}`;
+  if (message) waText += `%0AMessage: ${encodeURIComponent(message)}`;
+
+  // Show success and open WhatsApp
+  document.getElementById('contact-form').style.display = 'none';
+  document.getElementById('form-success').style.display = 'block';
+  setTimeout(() => { window.open(`https://wa.me/917993994449?text=${waText}`, '_blank'); }, 800);
+});
+</script>
+</body>
+</html>
